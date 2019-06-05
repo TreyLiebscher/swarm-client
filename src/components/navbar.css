@@ -1,0 +1,48 @@
+.navbar {
+    position: absolute;
+    display: flex;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #c3c300;
+}
+
+.title {
+    font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+    font-size: 35px;
+    width: 70%;
+}
+
+.logo {
+    color: black;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.s1 {
+  -webkit-text-fill-color: #f5f500;
+}
+
+.s2 {
+  -webkit-text-fill-color: #c3c300;
+}
+
+.s3 {
+  -webkit-text-fill-color: #8e8e00;
+}
+
+.s4{
+  -webkit-text-fill-color: #bdbd5c;
+}
+
+.s5 {
+  -webkit-text-fill-color: #8e8e00;
+}
+
+.s6 {
+  -webkit-text-fill-color: #c3c300;
+}
+
+.s7 {
+  -webkit-text-fill-color: yellow;
+}
