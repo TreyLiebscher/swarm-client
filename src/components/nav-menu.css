@@ -21,13 +21,14 @@
 }
 
 .navmenu-list {
+    background-color: #1f1e1e;
     border-left: 2px solid #c3c300;
     border-bottom: 2px solid #c3c300;
     list-style: none;
     position: absolute;
-    margin-top: 0;
+    margin-top: 2px;
     left: -50%;
-    width: 150%;
+    width: 148%;
     padding: 0;
 }
 
@@ -43,4 +44,8 @@
 
 .navmenu-item:last-child {
     border: none;
+}
+
+.navmenu-link {
+    text-decoration: none;
 }
