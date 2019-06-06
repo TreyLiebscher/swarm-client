@@ -1,40 +1,6 @@
 import React, { useState } from 'react';
 import './nav-menu.css';
 
-// export class NavMenu extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.toggleMenu = this.toggleMenu.bind(this);
-//         this.state = {
-//             visible: false
-//         };
-//     }
-
-//     toggleMenu(){
-//         const {visible} = this.state;
-//         if(visible === false){
-//             this.setState({visible: true});
-//         } else {
-//             this.setState({visible: false});
-//         }
-//     }
-
-//     render(){
-//         const {visible} = this.state; 
-//         if(visible === false){
-//             console.log('The Menu is hidden');
-//             return (
-//                 <div className="navmenu" onClick={this.toggleMenu}>Hi</div>
-//             )
-//         } else {
-//             console.log('The Menu is visible');
-//             return (
-//                 <div className="navmenu" onClick={this.toggleMenu}>HELLLO</div>
-//             )
-//         }
-//     }
-// }
-
 export function NavMenu(){
     const [active, setActive] = useState(false);
 
