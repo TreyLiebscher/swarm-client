@@ -11,6 +11,7 @@ export function NavMenu(props){
     function logOut(){
         props.dispatch(clearAuth());
         clearAuthToken();
+        setActive(false);
         // <Redirect to="/" />
     }
 
