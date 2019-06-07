@@ -26,7 +26,7 @@ const standardViewPost = post => ({
     createdAt: post.createdAt
 });
 
-// GENERAL BROWSING \\
+// GET - GENERAL BROWSING \\
 export function generalBrowse(page) {
     const url = `${Post_URL}browse/${page}`;
     return cachedFetch(url)
@@ -59,6 +59,41 @@ export const browsePosts = page => dispatch => {
             dispatch(genBrowseError(error));
         });
 };
+
+// GET - VIEW POST \\
+export function viewPost(postId) {
+    const url = `${Post_URL}view/${postId}`;
+    return cachedFetch(url)
+        .then(data => standardViewPost(data.feedback));
+}
+
+export const VIEW_POST_REQUEST = 'VIEW_POST_REQUEST';
+export const viewPostRequest = () => ({
+    type: VIEW_POST_REQUEST
+});
+
+export const VIEW_POST_SUCCESS = 'VIEW_POST_SUCCESS';
+export const viewPostSuccess = post => ({
+    type: VIEW_POST_SUCCESS,
+    post
+});
+
+export const VIEW_POST_ERROR = 'VIEW_POST_ERROR';
+export const viewPostError = error => ({
+    type: VIEW_POST_ERROR,
+    error
+});
+
+export const viewPostById = id => dispatch => {
+    dispatch(viewPostRequest());
+    return viewPost(id)
+        .then(post => dispatch(viewPostSuccess(post)))
+        .catch(error => {
+            console.log('Post view error', error);
+            dispatch(viewPostError(error));
+        });
+};
+
 
 
 
