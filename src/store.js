@@ -4,12 +4,15 @@ import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import {browseReducer, viewReducer} from './reducers/posts';
+import {hiveBrowse, hiveView} from './reducers/hives';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
+        hives: hiveBrowse,
+        hive: hiveView,
         posts: browseReducer,
         post: viewReducer
     }),
