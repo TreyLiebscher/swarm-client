@@ -9,7 +9,10 @@
 .title {
     font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
     font-size: 35px;
-    width: 70%;
+}
+
+.logo-box {
+  width: 70%;
 }
 
 .logo {
@@ -17,6 +20,10 @@
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+}
+
+.logo-link {
+  text-decoration: none;
 }
 
 .s1 {
