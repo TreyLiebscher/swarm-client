@@ -7,11 +7,17 @@ export class QuickViewPost extends React.Component {
 
 
     render(){
-        let image;
+        let urlTitle = slugify(this.props.title);
+        const urlTitleShorten = (urlTitle) => {
+            if(urlTitle.length >= 25){
+                urlTitle = urlTitle.slice(0, 25);
+            }
+            return urlTitle;
+        }
         // let tags = this.props.tags.map((tag) => {<p>{tag}</p>})
         return (
             <div className="quickview-post" id={this.props.id}>
-                <Link to={`posts/view/${this.props.id}/${slugify(this.props.title)}`}><h3>{this.props.title}</h3></Link>
+                <Link to={`/posts/view/${this.props.id}/${urlTitleShorten(urlTitle)}`}><h3>{this.props.title}</h3></Link>
                 <p>{this.props.hive}</p>
                 <p>{this.props.author}</p>
             </div>
