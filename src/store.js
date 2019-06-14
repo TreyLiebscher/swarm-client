@@ -5,6 +5,7 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import {browseReducer, viewReducer} from './reducers/posts';
 import {hiveBrowse, hiveView} from './reducers/hives';
+import {profileReducer} from './reducers/users';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
@@ -14,7 +15,8 @@ const store = createStore(
         hives: hiveBrowse,
         hive: hiveView,
         posts: browseReducer,
-        post: viewReducer
+        post: viewReducer,
+        userProfile: profileReducer
     }),
     applyMiddleware(thunk)
 );
