@@ -15,9 +15,6 @@ export class LoginForm extends React.Component {
 
     render() {
         let error;
-        if(this.props.loggedIn === true){
-            return <Redirect to="/" />
-        }
 
         if (this.props.error) {
             error = (
@@ -56,14 +53,6 @@ export class LoginForm extends React.Component {
         );
     }
 }
-
-const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
-});
-
-LoginForm = connect(
-    mapStateToProps
-)(LoginForm);
 
 export default reduxForm({
     form: 'login',
