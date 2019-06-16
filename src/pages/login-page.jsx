@@ -6,9 +6,9 @@ import {login} from '../actions/auth';
 import LogInForm from '../components/forms/login-form';
 
 export function LogInPage(props) {
-    // if (props.loggedIn) {
-    //     return <Redirect to="/profile/home" />;
-    // }
+    if (props.loggedIn) {
+        return <Redirect to="/users/profile/home" />;
+    }
 
     // const demoLogin = () => {
     //     return props.dispatch(login('GuestUser', '1234567890'))
