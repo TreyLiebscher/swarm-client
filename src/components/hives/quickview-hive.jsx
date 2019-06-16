@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, Redirect, withRouter} from 'react-router-dom';
 import slugify from 'slugify';
+import './quickview-hive.css';
 
 export class QuickViewHive extends React.Component {
 
@@ -15,10 +16,12 @@ export class QuickViewHive extends React.Component {
 
         return (
             <div className="quickview-hive" id={this.props.id}>
-                <Link to={`hives/view/${slugify(this.props.title)}`}><h3>{this.props.title}</h3></Link>
-                <p>{this.props.mission}</p>
-                <p>{this.props.members}</p>
-                <p>{this.props.posts}</p>            
+                <Link className="quickView-hive-link" to={`hives/view/${slugify(this.props.title)}`}>
+                    <h3>{this.props.title}</h3>
+                    <p>{this.props.mission}</p>
+                    <p>Members: {this.props.members}</p>
+                    <p>Posts: {this.props.posts}</p>
+                </Link>
             </div>
         )
     }
