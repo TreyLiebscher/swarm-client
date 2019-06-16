@@ -5,6 +5,7 @@ import { browsePosts, viewPostById } from '../actions/posts';
 import {browseHives} from '../actions/hives';
 import QuickViewPost from '../components/posts/quickview-post';
 import QuickViewHive from '../components/hives/quickview-hive';
+import './home-page.css';
 
 export class HomePage extends React.Component {
 
@@ -30,7 +31,7 @@ export class HomePage extends React.Component {
         });
 
         return (
-            <div>
+            <div className="home-page-container">
                 {hives}
             </div>
         )
