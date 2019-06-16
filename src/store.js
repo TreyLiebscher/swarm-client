@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import {browseReducer, viewReducer} from './reducers/posts';
-import {hiveBrowse, hiveView} from './reducers/hives';
+import {hiveBrowse, hiveView, hiveBuild} from './reducers/hives';
 import {profileReducer} from './reducers/users';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
@@ -14,6 +14,7 @@ const store = createStore(
         auth: authReducer,
         hives: hiveBrowse,
         hive: hiveView,
+        buildHive: hiveBuild, 
         posts: browseReducer,
         post: viewReducer,
         userProfile: profileReducer
