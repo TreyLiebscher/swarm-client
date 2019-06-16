@@ -12,6 +12,7 @@ export class ProfileHomePage extends React.Component {
     render(){
         return (
             <div>
+                <Link to="/hives/build">Build a Hive!</Link>
                 <p>your profile here</p>
             </div>
         )
