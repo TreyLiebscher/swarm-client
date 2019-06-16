@@ -1,0 +1,9 @@
+.quickview-hive {
+    border: 1px solid #c3c300;
+    margin: 1em;
+}
+
+.quickView-hive-link {
+    text-decoration: none;
+    color: #c3c300;
+}
