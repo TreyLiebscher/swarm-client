@@ -90,3 +90,38 @@ export const viewHiveByTitle = title => dispatch => {
         });
 };
 
+// POST - Build Hive \\
+export const BUILD_HIVE_SUCCESS = 'BUILD_HIVE_SUCCESS';
+export const buildHiveSuccess = (hive) => ({
+    type: BUILD_HIVE_SUCCESS,
+    hive
+});
+
+export const BUILD_HIVE_ERROR = 'BUILD_HIVE_ERROR';
+export const buildHiveError = error => ({
+    type: BUILD_HIVE_ERROR,
+    error
+});
+
+export const buildHive = hive => (dispatch, getState) => {
+    const userId = getState().userProfile.user.profile.id;
+
+    return fetch(`${API_BASE_URL}hives/build`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: userId,
+            title: hive.title,
+            mission: hive.mission
+        })
+    })
+    .then(res => res.json())
+    .then((hive) => dispatch(buildHiveSuccess(hive)))
+    .catch(err => {
+        dispatch(buildHiveError(err));
+    });
+}
+
