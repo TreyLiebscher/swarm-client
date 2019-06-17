@@ -11,6 +11,9 @@ import {
 
 const browseState = {
     hives: [],
+    currentPage: 1,
+    pages: '',
+    totalHives: '',
     loading: false,
     error: null
 };
@@ -22,7 +25,14 @@ export function hiveBrowse(state = browseState, action) {
         return newState;
     }
     else if (action.type === GEN_BROWSE_SUCCESS) {
-        const changedState = {hives: action.hives, loading: false, error: null};
+        const changedState = {
+            hives: action.hives.hives,
+            currentPage: action.hives.currentPage,
+            pages: action.hives.pages,
+            totalHives: action.hives.totalHives, 
+            loading: false, 
+            error: null
+        };
         const newState = {...state, ...changedState};
         return newState;
     }
