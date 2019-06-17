@@ -3,7 +3,7 @@ import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
-import {browseReducer, viewReducer} from './reducers/posts';
+import {browseReducer, viewReducer, createPostReducer} from './reducers/posts';
 import {hiveBrowse, hiveView, hiveBuild} from './reducers/hives';
 import {profileReducer} from './reducers/users';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
@@ -17,6 +17,7 @@ const store = createStore(
         buildHive: hiveBuild, 
         posts: browseReducer,
         post: viewReducer,
+        createPost: createPostReducer,
         userProfile: profileReducer
     }),
     applyMiddleware(thunk)
