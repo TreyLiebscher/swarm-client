@@ -3,7 +3,7 @@ import { cachedFetch } from './url-cache';
 const Hive_URL = `${API_BASE_URL}hives/`;
 
 const quickViewHive = hive => ({
-    id: hive.id,
+    id: hive._id,
     title: hive.title,
     mission: hive.mission,
     posts: hive.posts.length,
@@ -11,7 +11,7 @@ const quickViewHive = hive => ({
 });
 
 const standardViewHive = hive => ({
-    id: hive.id,
+    id: hive._id,
     title: hive.title,
     mission: hive.mission,
     posts: hive.posts,
