@@ -94,7 +94,40 @@ export const viewPostById = id => dispatch => {
         });
 };
 
+export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
+export const createPostSuccess = (post) => ({
+    type: CREATE_POST_SUCCESS,
+    post
+});
 
+export const CREATE_POST_ERROR = 'CREATE_POST_ERROR';
+export const createPostError = error => ({
+    type: CREATE_POST_ERROR,
+    error
+});
 
+export const createPost = (post, hive) => (dispatch, getState) => {
+    const userId = getState().userProfile.user.profile.id;
 
-
+    return fetch(`${API_BASE_URL}posts/create/${hive}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: userId,
+            title: post.title,
+            body: post.body,
+            link: post.link,
+            image: post.image,
+            tags: post.tags,
+            // hive: post.hive
+        })
+    })
+    .then(res => res.json())
+    .then((post) => dispatch(createPostSuccess(post)))
+    .catch(err => {
+        dispatch(createPostError(err));
+    });
+}
