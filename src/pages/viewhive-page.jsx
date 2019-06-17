@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import {viewHiveByTitle} from '../actions/hives';
 import QuickViewPost from '../components/posts/quickview-post';
+import slugify from 'slugify';
 
 export class ViewHivePage extends React.Component {
 
@@ -19,6 +21,7 @@ export class ViewHivePage extends React.Component {
             <div className="viewHive">
                 <h2>{hive.title}</h2>
                 <h3>{hive.mission}</h3>
+                <Link to={`/posts/create/${hive.id}`}>Create Post</Link>
                 {posts}
             </div>
         )
