@@ -4,7 +4,9 @@ import {
     GEN_BROWSE_ERROR,
     VIEW_POST_REQUEST,
     VIEW_POST_SUCCESS,
-    VIEW_POST_ERROR
+    VIEW_POST_ERROR,
+    CREATE_POST_SUCCESS,
+    CREATE_POST_ERROR
 } from '../actions/posts';
 
 const browseState = {
@@ -46,7 +48,11 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === VIEW_POST_SUCCESS) {
-        const changedState = {post: action.post, loading: false, error: null};
+        const changedState = {
+            post: action.post, 
+            loading: false, 
+            error: null
+        };
         const newState = {...state, ...changedState};
         return newState;
     }
@@ -58,3 +64,32 @@ export function viewReducer(state = postViewState, action) {
 
     return state;
 }
+
+const postCreateState = {
+    post: {},
+    loading: false,
+    error: null
+};
+
+export function createPostReducer(state = postCreateState, action) {
+
+    if (action.type === CREATE_POST_SUCCESS) {
+        const changedState = {
+            post: action.post, 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === CREATE_POST_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+
+    return state;
+}
+
+
+
