@@ -22,8 +22,16 @@ const standardViewHive = hive => ({
 // GET - GENERAL BROWSING \\
 export function generalBrowse(page) {
     const url = `${Hive_URL}browse/${page}`;
+
     return cachedFetch(url)
-        .then(data => data.hives.map(quickViewHive));
+        .then((data) => {
+            return {
+                hives: data.hives.map(quickViewHive),
+                currentPage: data.currentPage,
+                pages: data.pages,
+                totalHives: data.totalHives
+            }
+        });
 }
 
 export const GEN_BROWSE_REQUEST = 'GEN_BROWSE_REQUEST';
