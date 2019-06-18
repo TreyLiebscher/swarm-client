@@ -1,23 +1,52 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import {Redirect} from 'react-router-dom';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../helpers/validators';
+import slugify from 'slugify';
 
 import {createPost} from '../../actions/posts';
 
-const titleLength = length({min: 1, max: 25});
+const titleLength = length({min: 1, max: 60});
 
 export class CreatePostForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            submitted: false
+        }
+    }
+    
+    
     onSubmit(values) {
         const hive = this.props.hive;
-        return this.props.dispatch(createPost(values, hive))
+        this.props.dispatch(createPost(values, hive))
+        .then(res => {
+            this.setState({
+                submitted: true
+        });
+        })
+
     }
 
-    // componentDidMount(){
-    //     console.log(this.props.hive)
-    // }
-
     render(){
+
+
+        if(this.state.submitted === true){
+            let urlTitle = slugify(this.props.currentPost.title);
+            const urlTitleShorten = (urlTitle) => {
+                if(urlTitle.length >= 25){
+                    urlTitle = urlTitle.slice(0, 25);
+                }
+                return urlTitle;
+            }
+            
+            return (
+                <Redirect to={`/posts/view/${this.props.currentPost.id}/${urlTitleShorten(urlTitle)}`} />
+            )
+        }
+        
+
         return (
             <form
                 className="createPost"
