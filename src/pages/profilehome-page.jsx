@@ -11,7 +11,7 @@ export class ProfileHomePage extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className="profileHome-page">
                 <Link to="/hives/build">Build a Hive!</Link>
                 <p>your profile here</p>
             </div>
