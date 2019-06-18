@@ -14,14 +14,15 @@ export class CreatePostPage extends React.Component {
     render(){
         return (
             <div>
-                <CreatePostForm hive={this.props.match.params.id}/>
+                <CreatePostForm hive={this.props.match.params.id} currentPost={this.props.post.post.post}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    user: state.userProfile
+    user: state.userProfile,
+    post: state.createPost
 });
 
 export default withRouter(connect(mapStateToProps)(CreatePostPage));
