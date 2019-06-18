@@ -6,8 +6,8 @@ const quickViewHive = hive => ({
     id: hive._id,
     title: hive.title,
     mission: hive.mission,
-    posts: hive.posts.length,
-    members: hive.members.length
+    posts: hive.posts,
+    members: hive.members
 });
 
 const standardViewHive = hive => ({
