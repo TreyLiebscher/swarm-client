@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-import { cachedFetch } from './url-cache';
+import { cachedFetch, nonCachedFetch } from './url-cache';
 import {stringToArray} from './utilities';
 const Post_URL = `${API_BASE_URL}posts/`;
 
@@ -64,7 +64,7 @@ export const browsePosts = page => dispatch => {
 // GET - VIEW POST \\
 export function viewPost(postId) {
     const url = `${Post_URL}view/${postId}`;
-    return cachedFetch(url)
+    return nonCachedFetch(url)
         .then(data => standardViewPost(data.feedback));
 }
 
