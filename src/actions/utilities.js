@@ -13,3 +13,7 @@ export const normalizeResponseErrors = res => {
     }
     return res;
 };
+
+export const stringToArray = str => {
+    return str.trim().split(" ");
+}
