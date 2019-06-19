@@ -1,19 +1,43 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import { withRouter} from 'react-router-dom';
+import { withRouter, Redirect} from 'react-router-dom';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../helpers/validators';
+import slugify from 'slugify';
 
 import {buildHive} from '../../actions/hives';
 
 const titleLength = length({min: 1, max: 25});
 
 export class BuildHiveForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            submitted: false
+        }
+    }
+    
+    
     onSubmit(values) {
-        return this.props.dispatch(buildHive(values))
+        this.props.dispatch(buildHive(values))
+        .then(res => {
+            this.setState({
+                submitted: true
+            });
+        });
     }
 
     render(){
+
+        if(this.state.submitted === true){
+            let urlTitle = slugify(this.props.currentHive.title);
+            
+            return (
+                <Redirect to={`/hives/view/${urlTitle}`} />
+            )
+        }
+
+
         return (
             <form
                 className="buildHive"
