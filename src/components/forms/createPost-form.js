@@ -67,6 +67,12 @@ export class CreatePostForm extends React.Component {
                     name="body"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
+                <label htmlFor="tags">Tags</label>
+                <Field
+                    component={Input}
+                    type="text"
+                    name="tags"
+                />
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}
