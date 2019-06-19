@@ -20,3 +20,19 @@ export function cachedFetch(url, options) {
         })
         .then(res => { cacheByUrl[url] = res; return res });
 }
+
+export function nonCachedFetch(url, options) {
+    return fetch(url, { headers: options })
+    .then(res => {
+        
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+
+        if (res._bodyText === '') {
+            return { results: [] }
+        }
+
+        return res.json();
+    })
+}
