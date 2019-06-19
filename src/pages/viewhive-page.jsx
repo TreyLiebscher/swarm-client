@@ -14,7 +14,7 @@ export class ViewHivePage extends React.Component {
     render(){
         const hive = this.props.view.hive;
         const posts = this.props.view.posts.map((post, index) => {
-           return <QuickViewPost id={post._id} key={index} title={post.title} author={post.author} hive={post.hive.title} />
+           return <QuickViewPost id={post._id} key={index} title={post.title} author={post.author} hive={post.hive.title} comments={post.comments.length} tags={post.tags} />
         });
 
         return (
