@@ -37,6 +37,7 @@ export function browseReducer(state = browseState, action) {
 
 const postViewState = {
     post: {},
+    comments: [],
     loading: false,
     error: null
 };
@@ -49,7 +50,8 @@ export function viewReducer(state = postViewState, action) {
     }
     else if (action.type === VIEW_POST_SUCCESS) {
         const changedState = {
-            post: action.post, 
+            post: action.post,
+            comments: action.post.comments, 
             loading: false, 
             error: null
         };
