@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 import { cachedFetch } from './url-cache';
+import {stringToArray} from './utilities';
 const Post_URL = `${API_BASE_URL}posts/`;
 
 const standardQuickViewPost = post => ({
@@ -108,7 +109,7 @@ export const createPostError = error => ({
 
 export const createPost = (post, hive) => (dispatch, getState) => {
     const userId = getState().userProfile.user.profile.id;
-
+    const tags = stringToArray(post.tags);
     return fetch(`${API_BASE_URL}posts/create/${hive}`, {
         method: 'POST',
         headers: {
@@ -121,7 +122,7 @@ export const createPost = (post, hive) => (dispatch, getState) => {
             body: post.body,
             link: post.link,
             image: post.image,
-            tags: post.tags,
+            tags: tags,
             // hive: post.hive
         })
     })
