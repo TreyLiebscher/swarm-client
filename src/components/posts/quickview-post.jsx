@@ -14,12 +14,14 @@ export class QuickViewPost extends React.Component {
             }
             return urlTitle;
         }
-        // let tags = this.props.tags.map((tag) => {<p>{tag}</p>})
+        let tags = this.props.tags.map((tag, index) => <li key={index}>{tag}</li>)
         return (
             <div className="quickview-post" id={this.props.id}>
                 <Link to={`/posts/view/${this.props.id}/${urlTitleShorten(urlTitle)}`}><h3>{this.props.title}</h3></Link>
                 <p>{this.props.hive}</p>
                 <p>{this.props.author}</p>
+                <ul>{tags}</ul>
+                <p>Comments: {this.props.comments}</p>
             </div>
         )
     }
