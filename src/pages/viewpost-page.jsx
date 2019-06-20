@@ -19,13 +19,12 @@ export class ViewPostPage extends React.Component {
         const post = this.props.view.post;
         const comments = this.props.comments.map((comment, index) => {
             return <li key={index}>
-                    <p>{comment.author} says:</p>
+                    <p><i>{comment.author} says:</i></p>
                     <p>{comment.body}</p>
                     </li>
         });
 
         const ratings = this.props.ratings.length;
-
         return (
             <div className="viewpost">
                 <h2>{post.title}</h2>
