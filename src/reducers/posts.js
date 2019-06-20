@@ -11,6 +11,11 @@ import {
     RATE_POST_ERROR
 } from '../actions/posts';
 
+import {
+    CREATE_COMMENT_SUCCESS,
+    CREATE_COMMENT_ERROR
+} from '../actions/comments';
+
 const browseState = {
     posts: [],
     loading: false,
@@ -65,6 +70,15 @@ export function viewReducer(state = postViewState, action) {
     else if (action.type === RATE_POST_SUCCESS) {
         const changedState = {
             ratings: action.post.post.ratings, 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === CREATE_COMMENT_SUCCESS) {
+        const changedState = {
+            comments: action.comment.userFeedback.comments, 
             loading: false, 
             error: null
         };
