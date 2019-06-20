@@ -6,7 +6,9 @@ import {
     VIEW_POST_SUCCESS,
     VIEW_POST_ERROR,
     CREATE_POST_SUCCESS,
-    CREATE_POST_ERROR
+    CREATE_POST_ERROR,
+    RATE_POST_SUCCESS,
+    RATE_POST_ERROR
 } from '../actions/posts';
 
 const browseState = {
@@ -38,6 +40,7 @@ export function browseReducer(state = browseState, action) {
 const postViewState = {
     post: {},
     comments: [],
+    ratings: [],
     loading: false,
     error: null
 };
@@ -51,7 +54,17 @@ export function viewReducer(state = postViewState, action) {
     else if (action.type === VIEW_POST_SUCCESS) {
         const changedState = {
             post: action.post,
-            comments: action.post.comments, 
+            comments: action.post.comments,
+            ratings: action.post.ratings, 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === RATE_POST_SUCCESS) {
+        const changedState = {
+            ratings: action.post.post.ratings, 
             loading: false, 
             error: null
         };
@@ -59,6 +72,11 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === VIEW_POST_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === RATE_POST_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
@@ -92,6 +110,3 @@ export function createPostReducer(state = postCreateState, action) {
 
     return state;
 }
-
-
-
