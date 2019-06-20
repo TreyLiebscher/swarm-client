@@ -21,26 +21,13 @@ export class CreateCommentForm extends React.Component {
     onSubmit(values) {
         const post = this.props.post.id;
         this.props.dispatch(createComment(values, post))
-        .then(res => {
-            this.props.dispatch(viewPostById(post))
-        })
     }
 
     render(){
 
 
         // if(this.state.submitted === true){
-        //     let urlTitle = slugify(this.props.post.title);
-        //     const urlTitleShorten = (urlTitle) => {
-        //         if(urlTitle.length >= 25){
-        //             urlTitle = urlTitle.slice(0, 25);
-        //         }
-        //         return urlTitle;
-        //     }
-            
-        //     return (
-        //         <Redirect to={`/posts/view/${this.props.post.id}/${urlTitleShorten(urlTitle)}`} />
-        //     )
+        //     TODO *Close comment form/display comment form/etc*
         // }
         
 
