@@ -24,7 +24,8 @@ const standardViewPost = post => ({
     image: post.image,
     comments: post.comments,
     tags: post.tags,
-    createdAt: post.createdAt
+    createdAt: post.createdAt,
+    ratings: post.ratings
 });
 
 // GET - GENERAL BROWSING \\
@@ -130,5 +131,38 @@ export const createPost = (post, hive) => (dispatch, getState) => {
     .then((post) => dispatch(createPostSuccess(post)))
     .catch(err => {
         dispatch(createPostError(err));
+    });
+}
+
+export const RATE_POST_SUCCESS = 'RATE_POST_SUCCESS';
+export const ratePostSuccess = (post) => ({
+    type: RATE_POST_SUCCESS,
+    post
+});
+
+export const RATE_POST_ERROR = 'RATE_POST_ERROR';
+export const ratePostError = error => ({
+    type: RATE_POST_ERROR,
+    error
+});
+
+export const ratePost = (post) => (dispatch, getState) => {
+    const userId = getState().userProfile.user.profile.id;
+    return fetch(`${API_BASE_URL}posts/rate`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'   
+        },
+        body: JSON.stringify({
+            user: userId,
+            post: post.post,
+            rating: post.rating
+        })
+    })
+    .then(res => res.json())
+    .then((post) => dispatch(ratePostSuccess(post)))
+    .catch(err => {
+        dispatch(ratePostError(err))
     });
 }
