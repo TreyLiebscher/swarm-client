@@ -3,7 +3,7 @@ import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
-import {browseReducer, viewReducer, createPostReducer} from './reducers/posts';
+import {browseReducer, viewReducer, createPostReducer, ratePostReducer} from './reducers/posts';
 import {hiveBrowse, hiveView, hiveBuild} from './reducers/hives';
 import {profileReducer} from './reducers/users';
 import {createCommentReducer} from './reducers/comments';
@@ -19,6 +19,7 @@ const store = createStore(
         posts: browseReducer,
         post: viewReducer,
         createPost: createPostReducer,
+        // ratePost: ratePostReducer,
         createComment: createCommentReducer,
         userProfile: profileReducer
     }),
