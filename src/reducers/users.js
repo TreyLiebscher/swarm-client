@@ -4,7 +4,6 @@ import {
 } from '../actions/users';
 
 const userState = {
-    // user: {},
     username: '',
     email: '',
     id: '',
@@ -17,9 +16,7 @@ const userState = {
 
 export function profileReducer(state = userState, action) {
     if (action.type === FETCH_PROFILE_SUCCESS) {
-        console.log('kiwi', action.profile.profile)
         const changedState = {
-            // user: action.profile,
             username: action.profile.profile.username,
             email: action.profile.profile.email,
             id: action.profile.profile.id,
