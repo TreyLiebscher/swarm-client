@@ -1,0 +1,22 @@
+.profile-view-post-container {
+    border-top: 2px solid yellow;
+    border-bottom: 2px solid yellow;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.profile-view-post-label {
+    height: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-view-post-label:hover {
+    cursor: pointer;
+}
+
+.visible {
+    border-bottom: 2px dotted yellow;
+}
