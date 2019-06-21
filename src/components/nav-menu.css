@@ -23,7 +23,6 @@
 .navmenu-list {
     background-color: #1f1e1e;
     border-left: 2px solid #c3c300;
-    border-bottom: 2px solid #c3c300;
     list-style: none;
     position: absolute;
     margin-top: 2px;
@@ -40,10 +39,6 @@
 .navmenu-item:hover {
     background-color: black;
     cursor: pointer;
-}
-
-.navmenu-item:last-child {
-    border: none;
 }
 
 .navmenu-link {
