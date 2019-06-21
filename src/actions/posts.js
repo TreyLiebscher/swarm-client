@@ -109,7 +109,7 @@ export const createPostError = error => ({
 });
 
 export const createPost = (post, hive) => (dispatch, getState) => {
-    const userId = getState().userProfile.user.profile.id;
+    const userId = getState().userProfile.id;
     const tags = stringToArray(post.tags);
     return fetch(`${API_BASE_URL}posts/create/${hive}`, {
         method: 'POST',
@@ -147,7 +147,7 @@ export const ratePostError = error => ({
 });
 
 export const ratePost = (post) => (dispatch, getState) => {
-    const userId = getState().userProfile.user.profile.id;
+    const userId = getState().userProfile.id;
     return fetch(`${API_BASE_URL}posts/rate`, {
         method: 'PUT',
         headers: {

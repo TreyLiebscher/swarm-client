@@ -112,7 +112,7 @@ export const buildHiveError = error => ({
 });
 
 export const buildHive = hive => (dispatch, getState) => {
-    const userId = getState().userProfile.user.profile.id;
+    const userId = getState().userProfile.id;
 
     return fetch(`${API_BASE_URL}hives/build`, {
         method: 'POST',

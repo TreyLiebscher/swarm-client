@@ -23,7 +23,7 @@ export const createCommentError = (error) => ({
 });
 
 export const createComment = (comment, post) => (dispatch, getState) => {
-    const userId = getState().userProfile.user.profile.id;
+    const userId = getState().userProfile.id;
     return fetch(`${Comment_URL}create`, {
         method: 'POST',
         headers: {
