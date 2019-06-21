@@ -22,16 +22,16 @@ export function NavMenu(props){
         if(props.loggedIn){
             return (
                 <ul className="navmenu-list">
-                    <li className="navmenu-item"><button onClick={() => logOut()}>Log Out</button></li>                    
+                    <li className="navmenu-item" onClick={() => logOut()}>Log Out</li>                    
                     <li className="navmenu-item">About</li>
-                    <li className="navmenu-item" onClick={() => setActive(false)}><Link to="/users/profile/home" className="navmenu-link">Your Profile</Link></li>
+                    <Link to="/users/profile/home" className="navmenu-link"><li className="navmenu-item" onClick={() => setActive(false)}>Your Profile</li></Link>
                 </ul>
             )
         } else {
             return (
                 <ul className="navmenu-list">
-                    <li className="navmenu-item" onClick={() => setActive(false)}><Link to="/login" className="navmenu-link">Login</Link></li>
-                    <li className="navmenu-item" onClick={() => setActive(false)}><Link to="/signup" className="navmenu-link">Signup</Link></li>                    
+                    <Link to="/login" className="navmenu-link"><li className="navmenu-item" onClick={() => setActive(false)}>Login</li></Link>
+                    <Link to="/signup" className="navmenu-link"><li className="navmenu-item" onClick={() => setActive(false)}>Signup</li></Link>                    
                     <li className="navmenu-item">About</li>
                 </ul>
             )     
