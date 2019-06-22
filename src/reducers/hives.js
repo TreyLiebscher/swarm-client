@@ -8,7 +8,9 @@ import {
     BUILD_HIVE_SUCCESS,
     BUILD_HIVE_ERROR,
     JOIN_HIVE_SUCCESS,
-    JOIN_HIVE_ERROR
+    JOIN_HIVE_ERROR,
+    LEAVE_HIVE_SUCCESS,
+    LEAVE_HIVE_ERROR
 } from '../actions/hives';
 
 const browseState = {
@@ -93,6 +95,20 @@ export function hiveView(state = viewState, action) {
         return newState;
     }
     else if (action.type === JOIN_HIVE_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === LEAVE_HIVE_SUCCESS) {
+        const changedState = {
+            members: action.hive.hive.members, 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === LEAVE_HIVE_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
