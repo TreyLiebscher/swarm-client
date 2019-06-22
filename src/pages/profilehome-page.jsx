@@ -13,7 +13,6 @@ export class ProfileHomePage extends React.Component {
     }
 
     render(){
-        console.log(this.props.user.username)
         return (
             <div className="profileHome-page">
                 <p>Wecome back {this.props.user.username}</p>
