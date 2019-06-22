@@ -6,7 +6,9 @@ import {
     VIEW_HIVE_SUCCESS,
     VIEW_HIVE_ERROR,
     BUILD_HIVE_SUCCESS,
-    BUILD_HIVE_ERROR
+    BUILD_HIVE_ERROR,
+    JOIN_HIVE_SUCCESS,
+    JOIN_HIVE_ERROR
 } from '../actions/hives';
 
 const browseState = {
@@ -46,7 +48,11 @@ export function hiveBrowse(state = browseState, action) {
 }
 
 const viewState = {
-    hive: {},
+    id: '',
+    title: '',
+    mission: '',
+    members: [],
+    createdAt: '',
     posts: [],
     loading: false,
     error: null
@@ -59,11 +65,34 @@ export function hiveView(state = viewState, action) {
         return newState;
     }
     else if (action.type === VIEW_HIVE_SUCCESS) {
-        const changedState = {hive: action.hive, posts: action.hive.posts, loading: false, error: null};
+        const changedState = {
+            id: action.hive.id,
+            title: action.hive.title,
+            mission: action.hive.mission,
+            members: action.hive.members,
+            createdAt: action.hive.createdAt, 
+            posts: action.hive.posts, 
+            loading: false, 
+            error: null
+        };
         const newState = {...state, ...changedState};
         return newState;
     }
     else if (action.type === VIEW_HIVE_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === JOIN_HIVE_SUCCESS) {
+        const changedState = {
+            members: action.hive.hive.members, 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === JOIN_HIVE_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
