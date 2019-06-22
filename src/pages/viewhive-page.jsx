@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {viewHiveByTitle, joinHive} from '../actions/hives';
+import {viewHiveByTitle, joinHive, leaveHive} from '../actions/hives';
 import QuickViewPost from '../components/posts/quickview-post';
 import slugify from 'slugify';
 
@@ -9,6 +9,7 @@ export class ViewHivePage extends React.Component {
     constructor(props){
         super(props);
         this.joinHive = this.joinHive.bind(this)
+        this.leaveHive = this.leaveHive.bind(this)
     }
 
 
@@ -18,6 +19,10 @@ export class ViewHivePage extends React.Component {
 
     joinHive(){
         return this.props.dispatch(joinHive(this.props.view))
+    }
+
+    leaveHive(){
+        return this.props.dispatch(leaveHive(this.props.view))
     }
 
 
@@ -33,7 +38,7 @@ export class ViewHivePage extends React.Component {
             console.log(hive.members, this.props.auth.currentUser.id)
             if(hive.members.includes(this.props.auth.currentUser.id)){
                 console.log('Member')
-                return <button >Leave</button>
+                return <button onClick={this.leaveHive}>Leave</button>
             } else {
                 return <button onClick={this.joinHive}>Join</button>
             }
