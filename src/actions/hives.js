@@ -133,3 +133,36 @@ export const buildHive = hive => (dispatch, getState) => {
     });
 }
 
+// POST - Join Hive \\
+export const JOIN_HIVE_SUCCESS = 'JOIN_HIVE_SUCCESS';
+export const joinHiveSuccess = (hive) => ({
+    type: JOIN_HIVE_SUCCESS,
+    hive
+});
+
+export const JOIN_HIVE_ERROR = 'JOIN_HIVE_ERROR';
+export const joinHiveError = error => ({
+    type: JOIN_HIVE_ERROR,
+    error
+});
+
+export const joinHive = hive => (dispatch, getState) => {
+    const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}hives/join`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: userId,
+            hive: hive.id
+        })
+    })
+    .then(res => res.json())
+    .then((hive) => dispatch(joinHiveSuccess(hive)))
+    .catch(err => {
+        dispatch(joinHiveError(err));
+    });
+}
