@@ -43,7 +43,16 @@ export function browseReducer(state = browseState, action) {
 }
 
 const postViewState = {
-    post: {},
+    id: '',
+    hive_title: '',
+    hive_id: '',
+    author: '',
+    title: '',
+    body: '',
+    image: '',
+    link: '',
+    tags: [],
+    createdAt: '',
     comments: [],
     ratings: [],
     loading: false,
@@ -58,7 +67,16 @@ export function viewReducer(state = postViewState, action) {
     }
     else if (action.type === VIEW_POST_SUCCESS) {
         const changedState = {
-            post: action.post,
+            id: action.post.id,
+            hive_title: action.post.hive.title,
+            hive_id: action.post.hive.id,
+            author: action.post.author,
+            title: action.post.title,
+            body: action.post.body,
+            image: action.post.image,
+            link: action.post.link,
+            tags: action.post.tags,
+            createdAt: action.post.createdAt,
             comments: action.post.comments,
             ratings: action.post.ratings, 
             loading: false, 
@@ -82,6 +100,11 @@ export function viewReducer(state = postViewState, action) {
             loading: false, 
             error: null
         };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === CREATE_COMMENT_ERROR) {
+        const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
     }
