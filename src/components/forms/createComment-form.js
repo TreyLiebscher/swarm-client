@@ -12,8 +12,10 @@ import {viewPostById} from '../../actions/posts';
 export class CreateCommentForm extends React.Component {
     constructor(props){
         super(props);
+        this.displayForm = this.displayForm.bind(this);
         this.state = {
-            submitted: false
+            submitted: false,
+            visible: false
         }
     }
     
@@ -23,35 +25,54 @@ export class CreateCommentForm extends React.Component {
         this.props.dispatch(createComment(values, post))
     }
 
+    displayForm(){
+        if(this.state.visible === false){
+            this.setState({visible: true});
+        } else {
+            this.setState({visible: false});
+        }
+    }
+
     render(){
 
 
         // if(this.state.submitted === true){
         //     TODO *Close comment form/display comment form/etc*
         // }
+
+        if(this.state.visible === false){
+            return (
+                <button onClick={this.displayForm}>Post a Comment</button>
+            )
+        }
+        else {
+            return (
+                // <button onClick={this.displayForm}>Hide</button>
+                <form
+                    className="createComment"
+                    onSubmit={this.props.handleSubmit(values =>
+                        this.onSubmit(values)
+                    )}>
+                    <label htmlFor="body">Body</label>
+                    <Field
+                        component={Input}
+                        type="text"
+                        name="body"
+                        validate={[required, nonEmpty, isTrimmed]}
+                    />
+                    <button type="button" onClick={this.displayForm}>Cancel</button>
+                    <button
+                        type="submit"
+                        disabled={this.props.pristine || this.props.submitting}
+                        className="createComment-button">
+                        Comment
+                    </button>
+                </form>            
+            );
+        }
         
 
-        return (
-            <form
-                className="createComment"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                <label htmlFor="body">Body</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="body"
-                    validate={[required, nonEmpty, isTrimmed]}
-                />
-                <button
-                    type="submit"
-                    disabled={this.props.pristine || this.props.submitting}
-                    className="createComment-button">
-                    Comment
-                </button>
-            </form>            
-        );
+
     }
 }
 
