@@ -33,8 +33,8 @@ export class ViewPostPage extends React.Component {
                 <br />
                 <p>{post.body}</p>
                 <PostRater post={post.id}/>
-                <ul>{comments}</ul>
                 <CreateCommentForm post={post}/>
+                <ul>{comments}</ul>
             </div>
         )
     }
