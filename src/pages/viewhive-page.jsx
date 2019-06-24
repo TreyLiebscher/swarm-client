@@ -35,9 +35,8 @@ export class ViewHivePage extends React.Component {
 
         const joinButton = () => {
             if(this.props.auth.currentUser !== null){
-            console.log(hive.members, this.props.auth.currentUser.id)
+
             if(hive.members.includes(this.props.auth.currentUser.id)){
-                console.log('Member')
                 return <button onClick={this.leaveHive}>Leave</button>
             } else {
                 return <button onClick={this.joinHive}>Join</button>
@@ -49,6 +48,7 @@ export class ViewHivePage extends React.Component {
             <div className="viewHive">
                 <h2>{hive.title}</h2>
                 <h3>{hive.mission}</h3>
+                <p>Founder: {hive.founder}</p>
                 <p>Members: {members}</p>
                 {joinButton()}
                 <Link to={`/posts/create/${hive.id}`}>Create Post</Link>

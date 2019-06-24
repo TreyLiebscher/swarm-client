@@ -16,6 +16,7 @@ const standardViewHive = hive => ({
     mission: hive.mission,
     posts: hive.posts,
     members: hive.members,
+    founder: hive.founder.username,
     createdAt: hive.createdAt
 });
 
