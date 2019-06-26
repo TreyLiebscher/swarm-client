@@ -8,6 +8,7 @@ import slugify from 'slugify';
 export class ViewHivePage extends React.Component {
 
     componentDidMount(){
+        window.scrollTo(0, 0);
         this.props.dispatch(viewHiveByTitle(this.props.match.params.title))
     }
 
