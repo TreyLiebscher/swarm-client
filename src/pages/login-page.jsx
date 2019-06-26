@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect, withRouter} from 'react-router-dom';
-import {login} from '../actions/auth';
+import {Redirect, withRouter} from 'react-router-dom';
 
 import LogInForm from '../components/forms/login-form';
 

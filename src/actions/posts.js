@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-import { cachedFetch, nonCachedFetch } from './url-cache';
+import { cachedFetch } from './url-cache';
 import {stringToArray} from './utilities';
 const Post_URL = `${API_BASE_URL}posts/`;
 

@@ -1,15 +1,6 @@
 import {API_BASE_URL} from '../config';
 const Comment_URL = `${API_BASE_URL}comments/`;
 
-const commentView = comment => ({
-    id: comment.id,
-    author: comment.author,
-    body: comment.body,
-    user: comment.user,
-    replies: comment.replies,
-    createdAt: comment.createdAt
-});
-
 export const CREATE_COMMENT_SUCCESS = 'CREATE_COMMENT_SUCCESS';
 export const createCommentSuccess = (comment) => ({
     type: CREATE_COMMENT_SUCCESS,

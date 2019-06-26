@@ -1,12 +1,9 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import {Redirect} from 'react-router-dom';
 import AreaInput from './area-input';
-import {required, nonEmpty, matches, length, isTrimmed} from '../../helpers/validators';
-import slugify from 'slugify';
+import {required, nonEmpty, isTrimmed} from '../../helpers/validators';
 
 import {createComment} from '../../actions/comments';
-import {viewPostById} from '../../actions/posts';
 
 export class CreateCommentForm extends React.Component {
     constructor(props){

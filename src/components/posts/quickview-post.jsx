@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Redirect, withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import Ratings from './ratings';
 import slugify from 'slugify';
 import './quickview-post.css';

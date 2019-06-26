@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {viewHiveByTitle, joinHive, leaveHive} from '../actions/hives';
 import QuickViewPost from '../components/posts/quickview-post';
-import slugify from 'slugify';
 
 export class ViewHivePage extends React.Component {
     constructor(props){

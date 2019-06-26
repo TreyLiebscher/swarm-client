@@ -1,8 +1,6 @@
 import React from 'react';
-import {Link, Redirect, withRouter} from 'react-router-dom';
 import QuickViewPost from './quickview-post';
 import './profileview-post.css';
-import slugify from 'slugify';
 
 export class ProfileViewPost extends React.Component {
     constructor(props) {

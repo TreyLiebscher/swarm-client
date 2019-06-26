@@ -2,7 +2,7 @@ import React from 'react';
 import './navbar.css';
 import NavMenu from './nav-menu';
 import {connect} from 'react-redux';
-import {Link, Redirect, withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 export class NavBar extends React.Component {
 
