@@ -166,3 +166,68 @@ export const ratePost = (post) => (dispatch, getState) => {
         dispatch(ratePostError(err))
     });
 }
+
+const testViewPost = post => ({
+    id: post.feedback.id,
+    hive: post.feedback.hive,
+    author: post.feedback.author,
+    title: post.feedback.title,
+    link: post.feedback.link,
+    body: post.feedback.body,
+    image: post.feedback.image,
+    comments: post.feedback.comments,
+    tags: post.feedback.tags,
+    createdAt: post.feedback.createdAt,
+    ratings: post.feedback.ratings,
+    currentPage: post.currentPage,
+    pages: post.pages,
+    totalComments: post.totalComments
+})
+
+export function viewPostComments(postId, page) {
+    // const url = `${Post_URL}test/${postId}`;
+    console.log('KIWI fetching...')
+    return fetch(`${API_BASE_URL}posts/test/${postId}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            page: page
+            // hive: post.hive
+        })
+    })
+    .then(res => res.json())
+    .then(post => testViewPost(post))
+}
+
+// export const viewPostComments = (postId, page) => (dispatch) => {
+
+// }
+
+export const TEST_POST_REQUEST = 'TEST_POST_REQUEST';
+export const testPostRequest = () => ({
+    type: TEST_POST_REQUEST
+});
+
+export const TEST_POST_SUCCESS = 'TEST_POST_SUCCESS';
+export const testPostSuccess = post => ({
+    type: TEST_POST_SUCCESS,
+    post
+});
+
+export const TEST_POST_ERROR = 'TEST_POST_ERROR';
+export const testPostError = error => ({
+    type: TEST_POST_ERROR,
+    error
+});
+
+export const testPostCommentsPage = (postId, page) => dispatch => {
+    dispatch(testPostRequest());
+    return viewPostComments(postId, page)
+    .then(res => dispatch(testPostSuccess(res)))
+        .catch(error => {
+            dispatch(testPostError(error));
+        });
+}
