@@ -8,7 +8,10 @@ import {
     CREATE_POST_SUCCESS,
     CREATE_POST_ERROR,
     RATE_POST_SUCCESS,
-    RATE_POST_ERROR
+    RATE_POST_ERROR,
+    TEST_POST_REQUEST,
+    TEST_POST_SUCCESS,
+    TEST_POST_ERROR
 } from '../actions/posts';
 
 import {
@@ -140,6 +143,65 @@ export function createPostReducer(state = postCreateState, action) {
         return newState;
     }
     else if (action.type === CREATE_POST_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+
+    return state;
+}
+
+const testPostState = {
+    id: '',
+    hive_title: '',
+    hive_id: '',
+    author: '',
+    title: '',
+    body: '',
+    image: '',
+    link: '',
+    tags: [],
+    createdAt: '',
+    comments: [],
+    ratings: [],
+    currentPage: '',
+    pages: '',
+    totalComments: '',
+    loading: false,
+    error: null
+}
+
+export function testPostReducer(state = testPostState, action) {
+    if (action.type === TEST_POST_REQUEST) {
+        console.log('KIWI', action)
+        const changedState = {loading: true, error: null};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === TEST_POST_SUCCESS) {
+        const changedState = {
+            id: action.post.id,
+            hive_title: action.post.hive.title,
+            hive_id: action.post.hive.id,
+            author: action.post.author,
+            title: action.post.title,
+            body: action.post.body,
+            image: action.post.image,
+            link: action.post.link,
+            tags: action.post.tags,
+            createdAt: action.post.createdAt,
+            comments: [...state.comments, ...action.post.comments],
+            ratings: action.post.ratings,
+            currentPage: action.post.currentPage,
+            pages: action.post.pages,
+            totalComments: action.post.totalComments, 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === TEST_POST_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
