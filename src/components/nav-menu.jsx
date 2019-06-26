@@ -38,10 +38,18 @@ export function NavMenu(props){
         }
     }
 
+    const name_manager = () => {
+        if(props.loggedIn){
+            return `${props.user.username}`
+        } else {
+            return 'Menu'
+        }
+    }
+
     if(active === false){
         return (
             <div className="navmenu">
-                <div className="navmenu-button" onClick={() => setActive(true)}>Menu</div>
+                <div className="navmenu-button" onClick={() => setActive(true)}>{name_manager()}</div>
             </div>
         )
     } else {
@@ -56,8 +64,7 @@ export function NavMenu(props){
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
-    user: state.userProfile
-    // loading: state.auth.loading
+    user: state.auth.currentUser
 });
 
 export default withRouter(connect(mapStateToProps)(NavMenu));
