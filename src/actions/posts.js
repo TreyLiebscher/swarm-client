@@ -15,17 +15,21 @@ const standardQuickViewPost = post => ({
 });
 
 const standardViewPost = post => ({
-    id: post.id,
-    hive: post.hive,
-    author: post.author,
-    title: post.title,
-    link: post.link,
-    body: post.body,
-    image: post.image,
-    comments: post.comments,
-    tags: post.tags,
-    createdAt: post.createdAt,
-    ratings: post.ratings
+    id: post.feedback.id,
+    hive: post.feedback.hive,
+    author: post.feedback.author,
+    title: post.feedback.title,
+    link: post.feedback.link,
+    body: post.feedback.body,
+    image: post.feedback.image,
+    comments: post.feedback.comments,
+    tags: post.feedback.tags,
+    createdAt: post.feedback.createdAt,
+    ratings: post.feedback.ratings,
+    raters: post.feedback.raters,
+    currentPage: post.currentPage,
+    pages: post.pages,
+    totalComments: post.totalComments
 });
 
 // GET - GENERAL BROWSING \\
@@ -62,11 +66,20 @@ export const browsePosts = page => dispatch => {
         });
 };
 
-// GET - VIEW POST \\
-export function viewPost(postId) {
-    const url = `${Post_URL}view/${postId}`;
-    return nonCachedFetch(url)
-        .then(data => standardViewPost(data.feedback));
+// POST - VIEW POST \\
+export function viewPost(postId, page) {
+    return fetch(`${API_BASE_URL}posts/test/${postId}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            page: page
+        })
+    })
+    .then(res => res.json())
+    .then(post => standardViewPost(post));
 }
 
 export const VIEW_POST_REQUEST = 'VIEW_POST_REQUEST';
@@ -86,13 +99,39 @@ export const viewPostError = error => ({
     error
 });
 
-export const viewPostById = id => dispatch => {
+export const viewPostById = (postId, page) => dispatch => {
     dispatch(viewPostRequest());
-    return viewPost(id)
+    return viewPost(postId, page)
         .then(post => dispatch(viewPostSuccess(post)))
         .catch(error => {
-            console.log('Post view error', error);
             dispatch(viewPostError(error));
+        });
+};
+
+// Post + comment pagination
+export const POST_COMMENTS_REQUEST = 'POST_COMMENTS_REQUEST';
+export const postCommentsRequest = () => ({
+    type: POST_COMMENTS_REQUEST
+});
+
+export const POST_COMMENTS_SUCCESS = 'POST_COMMENTS_SUCCESS';
+export const postCommentsSuccess = post => ({
+    type: POST_COMMENTS_SUCCESS,
+    post
+});
+
+export const POST_COMMENTS_ERROR = 'POST_COMMENTS_ERROR';
+export const postCommentsError = error => ({
+    type: POST_COMMENTS_ERROR,
+    error
+});
+
+export const postComments = (postId, page) => dispatch => {
+    dispatch(postCommentsRequest());
+    return viewPost(postId, page)
+        .then(post => dispatch(postCommentsSuccess(post)))
+        .catch(error => {
+            dispatch(postCommentsError(error));
         });
 };
 
@@ -123,8 +162,7 @@ export const createPost = (post, hive) => (dispatch, getState) => {
             body: post.body,
             link: post.link,
             image: post.image,
-            tags: tags,
-            // hive: post.hive
+            tags: tags
         })
     })
     .then(res => res.json())

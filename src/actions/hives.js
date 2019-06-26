@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-import { cachedFetch } from './url-cache';
+import { cachedFetch, nonCachedFetch } from './url-cache';
 const Hive_URL = `${API_BASE_URL}hives/`;
 
 const quickViewHive = hive => ({
@@ -16,6 +16,7 @@ const standardViewHive = hive => ({
     mission: hive.mission,
     posts: hive.posts,
     members: hive.members,
+    founder: hive.founder.username,
     createdAt: hive.createdAt
 });
 
@@ -67,7 +68,7 @@ export function viewHive(title) {
     const formatted = title.replace(/-/g, " ");
     const urlTitle = encodeURIComponent(formatted);
     const url = `${Hive_URL}view/${urlTitle}`;
-    return cachedFetch(url)
+    return nonCachedFetch(url)
         .then(data => standardViewHive(data.feedback));
 }
 
@@ -133,3 +134,70 @@ export const buildHive = hive => (dispatch, getState) => {
     });
 }
 
+// POST - Join Hive \\
+export const JOIN_HIVE_SUCCESS = 'JOIN_HIVE_SUCCESS';
+export const joinHiveSuccess = (hive) => ({
+    type: JOIN_HIVE_SUCCESS,
+    hive
+});
+
+export const JOIN_HIVE_ERROR = 'JOIN_HIVE_ERROR';
+export const joinHiveError = error => ({
+    type: JOIN_HIVE_ERROR,
+    error
+});
+
+export const joinHive = hive => (dispatch, getState) => {
+    const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}hives/join`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: userId,
+            hive: hive.id
+        })
+    })
+    .then(res => res.json())
+    .then((hive) => dispatch(joinHiveSuccess(hive)))
+    .catch(err => {
+        dispatch(joinHiveError(err));
+    });
+}
+
+// POST - Leave Hive \\
+export const LEAVE_HIVE_SUCCESS = 'LEAVE_HIVE_SUCCESS';
+export const leaveHiveSuccess = (hive) => ({
+    type: LEAVE_HIVE_SUCCESS,
+    hive
+});
+
+export const LEAVE_HIVE_ERROR = 'LEAVE_HIVE_ERROR';
+export const leaveHiveError = error => ({
+    type: LEAVE_HIVE_ERROR,
+    error
+});
+
+export const leaveHive = hive => (dispatch, getState) => {
+    const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}hives/leave`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: userId,
+            hive: hive.id
+        })
+    })
+    .then(res => res.json())
+    .then((hive) => dispatch(leaveHiveSuccess(hive)))
+    .catch(err => {
+        dispatch(leaveHiveError(err));
+    });
+}

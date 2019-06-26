@@ -67,6 +67,12 @@ export class CreatePostForm extends React.Component {
                     name="body"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
+                <label htmlFor="link">Link</label>
+                <Field
+                    component={Input}
+                    type="text"
+                    name="link"
+                />
                 <label htmlFor="tags">Tags</label>
                 <Field
                     component={Input}
@@ -77,7 +83,7 @@ export class CreatePostForm extends React.Component {
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}
                     className="createPost-button">
-                    Build Hive
+                    Create Post
                 </button>
             </form>            
         );
