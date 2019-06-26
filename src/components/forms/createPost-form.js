@@ -83,7 +83,7 @@ export class CreatePostForm extends React.Component {
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}
                     className="createPost-button">
-                    Build Hive
+                    Create Post
                 </button>
             </form>            
         );

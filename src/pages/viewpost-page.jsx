@@ -6,6 +6,7 @@ import CreateCommentForm from '../components/forms/createComment-form';
 import PostRater from '../components/posts/post-rater';
 import { getProfile } from '../actions/users';
 import slugify from 'slugify';
+import Ratings from '../components/posts/ratings';
 import './viewpost-page.css';
 
 export class ViewPostPage extends React.Component {
@@ -49,12 +50,20 @@ export class ViewPostPage extends React.Component {
                 return <PostRater post={post.id}/>
             }
         }
+
+        const ratings = () => {
+            if(this.props.view.ratings.length !== 0){
+                return Math.round(this.props.view.ratings.reduce((a, b) => a + b) / this.props.view.ratings.length)
+            }
+        }
+
+        console.log('kiwi', this.props.view)
         return (
             <div className="viewpost">
                 <Link to={`/hives/view/${slugify(post.hive_title)}`}><p>{post.hive_title}</p></Link>
                 <h2>{post.title}</h2>
                 <h3>By: {post.author}</h3>
-                <p>Ratings: {post.ratings.length}</p>
+                <Ratings ratings={ratings()} length={this.props.view.ratings.length}/>
                 <br />
                 {link()}
                 <p>{post.body}</p>
