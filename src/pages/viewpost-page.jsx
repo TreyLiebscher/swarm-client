@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {viewPostById} from '../actions/posts';
+import {viewPostById, testPostCommentsPage} from '../actions/posts';
 import CreateCommentForm from '../components/forms/createComment-form';
 import PostRater from '../components/posts/post-rater';
 import { getProfile } from '../actions/users';
@@ -10,11 +10,28 @@ import slugify from 'slugify';
 export class ViewPostPage extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.tester = this.tester.bind(this);
+        this.nextComments = this.nextComments.bind(this);
+        this.state = {
+            page: 1
+        }
     }
 
     componentDidMount(){
         this.props.dispatch(viewPostById(this.props.match.params.id))
         .then(res => this.props.dispatch(getProfile()))
+    }
+
+    tester(){
+        let page = this.props.test.currentPage || 1;   
+        return this.props.dispatch(testPostCommentsPage(this.props.match.params.id, page))
+    }
+
+    nextComments(){
+        if((this.props.test.totalComments / 5) > this.state.page){
+            this.setState({page: this.state.page + 1});
+            return this.props.dispatch(testPostCommentsPage(this.props.match.params.id, this.state.page + 1))
+        }
     }
 
     render(){
@@ -31,11 +48,10 @@ export class ViewPostPage extends React.Component {
                 return <a href={post.link} target="_blank">{post.link}</a>
             }
         }
-
-        const ratings = this.props.ratings.length;
-        console.log(this.props.view.link)
         return (
             <div className="viewpost">
+                <button onClick={this.tester}>TEST</button>
+                <button onClick={this.nextComments}>NEXT</button>
                 <Link to={`/hives/view/${slugify(post.hive_title)}`}><p>{post.hive_title}</p></Link>
                 <h2>{post.title}</h2>
                 <h3>By: {post.author}</h3>
@@ -55,8 +71,8 @@ const mapStateToProps = state => {
     return {
         view: state.post,
         comments: state.post.comments,
-        ratings: state.post.ratings,
         user: state.userProfile,
+        test: state.test
 
     };
 };
