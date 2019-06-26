@@ -26,6 +26,7 @@ const standardViewPost = post => ({
     tags: post.feedback.tags,
     createdAt: post.feedback.createdAt,
     ratings: post.feedback.ratings,
+    raters: post.feedback.raters,
     currentPage: post.currentPage,
     pages: post.pages,
     totalComments: post.totalComments

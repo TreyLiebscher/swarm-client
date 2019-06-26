@@ -31,7 +31,9 @@ export class ProfileViewPost extends React.Component {
                     author={post.author} 
                     hive={post.hive.title} 
                     comments={post.comments.length} 
-                    tags={post.tags} 
+                    tags={post.tags}
+                    ratings={post.ratings}
+                    body={post.body}  
                     />
          });
 

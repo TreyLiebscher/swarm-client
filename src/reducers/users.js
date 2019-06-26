@@ -9,6 +9,7 @@ const userState = {
     id: '',
     comments: [],
     posts: [],
+    ratedPosts: [],
     hives: [],
     loading: false,
     error: null
@@ -22,6 +23,7 @@ export function profileReducer(state = userState, action) {
             id: action.profile.profile.id,
             comments: action.profile.profile.comments,
             posts: action.profile.profile.posts,
+            ratedPosts: action.profile.profile.ratedPosts,
             hives: action.profile.profile.hives, 
             loading: false, 
             error: null
