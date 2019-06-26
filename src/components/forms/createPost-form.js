@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import Input from './input';
-import {required, nonEmpty, matches, length, isTrimmed} from '../../helpers/validators';
+import {required, nonEmpty, length, isTrimmed} from '../../helpers/validators';
 import slugify from 'slugify';
 
 import {createPost} from '../../actions/posts';

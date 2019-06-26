@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {withRouter, Redirect, Link} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import {getProfile} from '../actions/users';
-import slugify from 'slugify';
 
 import CreatePostForm from '../components/forms/createPost-form';
 

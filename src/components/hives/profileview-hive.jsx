@@ -1,7 +1,5 @@
 import React from 'react';
-import {Link, Redirect, withRouter} from 'react-router-dom';
 import QuickViewHive from './quickview-hive';
-import slugify from 'slugify';
 import './profileview-hive.css';
 
 export class ProfileViewHive extends React.Component {

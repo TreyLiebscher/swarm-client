@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { browsePosts, viewPostById } from '../actions/posts';
 import LoadingMessage from '../components/loading-message';
 import {browseHives} from '../actions/hives';
-import QuickViewPost from '../components/posts/quickview-post';
 import QuickViewHive from '../components/hives/quickview-hive';
 import './home-page.css';
 

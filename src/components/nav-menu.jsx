@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect, withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
-import {getProfile} from '../actions/users';
 import {clearAuthToken} from '../local-storage';
 import './nav-menu.css';
 

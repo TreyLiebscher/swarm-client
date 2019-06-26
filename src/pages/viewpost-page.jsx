@@ -19,7 +19,8 @@ export class ViewPostPage extends React.Component {
     }
 
     componentDidMount(){
-        this.props.dispatch(viewPostById(this.props.match.params.id, 1))
+        window.scrollTo(0, 0);
+        this.props.dispatch(viewPostById(this.props.match.params.id))
         .then(res => this.props.dispatch(getProfile()))
     }
 
@@ -41,7 +42,7 @@ export class ViewPostPage extends React.Component {
 
         const link = () => {
             if(post.link){
-                return <a href={post.link} target="_blank">{post.link}</a>
+                return <a href={post.link} target="_blank" rel="noopener noreferrer">{post.link}</a>
             }
         }
 

@@ -1,10 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
-import {Link, Redirect, withRouter} from 'react-router-dom';
 import Input from './input';
 import {login} from '../../actions/auth';
-import {getProfile} from '../../actions/users';
 import {required, nonEmpty} from '../../helpers/validators';
 
 export class LoginForm extends React.Component {

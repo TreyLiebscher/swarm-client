@@ -11,10 +11,7 @@ import {
     CREATE_POST_SUCCESS,
     CREATE_POST_ERROR,
     RATE_POST_SUCCESS,
-    RATE_POST_ERROR,
-    // TEST_POST_REQUEST,
-    // TEST_POST_SUCCESS,
-    // TEST_POST_ERROR
+    RATE_POST_ERROR
 } from '../actions/posts';
 
 import {
@@ -99,6 +96,11 @@ export function viewReducer(state = postViewState, action) {
         const newState = {...state, ...changedState};
         return newState;
     }
+    else if (action.type === POST_COMMENTS_REQUEST) {
+        const changedState = {loading: true, error: null};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
     else if (action.type === POST_COMMENTS_SUCCESS) {
         const changedState = {
             id: action.post.id,
@@ -153,6 +155,11 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === RATE_POST_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === POST_COMMENTS_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
