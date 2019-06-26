@@ -43,6 +43,12 @@ export class ViewPostPage extends React.Component {
                 return <a href={post.link} target="_blank">{post.link}</a>
             }
         }
+
+        const postRaterDisplay = () => {
+            if(!(this.props.view.raters.includes(this.props.user.id))){
+                return <PostRater post={post.id}/>
+            }
+        }
         return (
             <div className="viewpost">
                 <Link to={`/hives/view/${slugify(post.hive_title)}`}><p>{post.hive_title}</p></Link>
@@ -52,7 +58,7 @@ export class ViewPostPage extends React.Component {
                 <br />
                 {link()}
                 <p>{post.body}</p>
-                <PostRater post={post.id}/>
+                {postRaterDisplay()}
                 <CreateCommentForm post={post}/>
                 <ul className="viewpost-comment-container">{comments}</ul>
                 <button onClick={this.nextComments}>NEXT</button>
@@ -66,6 +72,7 @@ const mapStateToProps = state => {
         view: state.post,
         comments: state.post.comments,
         user: state.userProfile
+
     };
 };
 
