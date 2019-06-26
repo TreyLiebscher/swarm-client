@@ -61,6 +61,7 @@ const postViewState = {
     createdAt: '',
     comments: [],
     ratings: [],
+    raters: [],
     currentPage: '',
     pages: '',
     totalComments: '',
@@ -88,6 +89,7 @@ export function viewReducer(state = postViewState, action) {
             createdAt: action.post.createdAt,
             comments: action.post.comments,
             ratings: action.post.ratings,
+            raters: action.post.raters,
             currentPage: action.post.currentPage,
             pages: action.post.pages,
             totalComments: action.post.totalComments, 
@@ -123,7 +125,8 @@ export function viewReducer(state = postViewState, action) {
 
     else if (action.type === RATE_POST_SUCCESS) {
         const changedState = {
-            ratings: action.post.post.ratings, 
+            ratings: action.post.post.ratings,
+            raters: action.post.post.raters, 
             loading: false, 
             error: null
         };
