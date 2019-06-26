@@ -1,0 +1,44 @@
+.five {
+    color: yellow;
+}
+
+.four {
+    color: #c3c300;
+}
+
+.three {
+    color: #8e8e00;
+}
+
+.two {
+    color: #bdbd5c;
+}
+
+.one {
+    color: red;
+}
+
+.rating-count {
+    color: white;
+}
+
+.quickview-post {
+    border-left: 1px solid yellow;
+    border-right: 1px solid yellow;
+}
+
+.quickview-post-title-link {
+    text-decoration: none;
+}
+
+.quickview-post-title {
+    color: yellow;
+    border-top: 2px solid yellow;
+    border-bottom: 2px dotted yellow;
+}
+
+.quickview-post-bodypreview {
+    width: 80%;
+    margin: auto;
+    font-size: 12px;
+}
