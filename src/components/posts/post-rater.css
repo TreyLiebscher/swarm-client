@@ -1,5 +1,14 @@
 .post-rater-container {
     border: 2px solid yellow;
+    margin-bottom: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+.post-rater-button-container {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
 .post-rater-button {
@@ -10,6 +19,7 @@
     font-size: 40px;
     border: none;
     outline: none;
+    padding: 0;
 }
 
 .post-rater-submit-button {

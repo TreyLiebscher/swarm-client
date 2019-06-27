@@ -10,6 +10,7 @@
 
 .createComment-cancel {
     display: flex;
+    font-size: 30px;
     margin-left: 16px;
     margin-bottom: 5px;
     background-color: #1f1e1e;
@@ -21,4 +22,6 @@
     background-color: #1f1e1e;
     color: yellow;
     border: 1px solid yellow;
+    width: 50%;
+    height: 40px;
 }
