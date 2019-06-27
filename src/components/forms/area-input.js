@@ -1,4 +1,5 @@
 import React from 'react';
+import './area-input.css';
 
 export default class AreaInput extends React.Component {
     componentDidUpdate(prevProps) {
