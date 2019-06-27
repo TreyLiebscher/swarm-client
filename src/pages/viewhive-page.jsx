@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {viewHiveByTitle, joinHive, leaveHive} from '../actions/hives';
 import QuickViewPost from '../components/posts/quickview-post';
+import './viewhive-page.css'
 
 export class ViewHivePage extends React.Component {
     constructor(props){
@@ -34,11 +35,12 @@ export class ViewHivePage extends React.Component {
                     key={index} 
                     title={post.title} 
                     author={post.author} 
-                    hive={post.hive.title} 
+                    hive={hive.title} 
                     comments={post.comments.length} 
                     tags={post.tags}
                     ratings={post.ratings}
-                    body={post.body} 
+                    body={post.body}
+                    createdAt={post.createdAt} 
                     />
         });
         const members = hive.members.length;
@@ -47,21 +49,23 @@ export class ViewHivePage extends React.Component {
             if(this.props.auth.currentUser !== null){
 
             if(hive.members.includes(this.props.auth.currentUser.id)){
-                return <button onClick={this.leaveHive}>Leave</button>
+                return <button className="viewhive-page-leave-button" onClick={this.leaveHive}>Leave Hive</button>
             } else {
-                return <button onClick={this.joinHive}>Join</button>
+                return <button className="viewhive-page-join-button" onClick={this.joinHive}>Join Hive</button>
             }
             }
         }
 
         return (
-            <div className="viewHive">
-                <h2>{hive.title}</h2>
+            <div className="viewhive-page-container">
+                <h2 className="viewhive-page-title">&#x2b21; {hive.title}</h2>
                 <h3>{hive.mission}</h3>
                 <p>Founder: {hive.founder}</p>
-                <p>Members: {members}</p>
                 {joinButton()}
-                <Link to={`/posts/create/${hive.id}`}>Create Post</Link>
+                <p>Members: {members}</p>
+                <div className="viewhive-page-link-container">
+                    <Link className="viewhive-page-link" to={`/posts/create/${hive.id}`}><p className="viewhive-page-link-text">+Create Post</p></Link>
+                </div>
                 {posts}
             </div>
         )
