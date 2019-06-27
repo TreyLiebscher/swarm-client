@@ -2,6 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import AreaInput from './area-input';
 import {required, nonEmpty, isTrimmed} from '../../helpers/validators';
+import './forms.css';
 
 import {createComment} from '../../actions/comments';
 
@@ -39,30 +40,30 @@ export class CreateCommentForm extends React.Component {
 
         if(this.state.visible === false){
             return (
-                <button onClick={this.displayForm}>Post a Comment</button>
+                <button className="createComment-display-button"onClick={this.displayForm}>Post a Comment</button>
             )
         }
         else {
             return (
-                // <button onClick={this.displayForm}>Hide</button>
                 <form
                     className="createComment"
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
-                    <label htmlFor="body">Body</label>
+                    <button type="button" className="createComment-cancel" onClick={this.displayForm}>X</button>
+                    <label htmlFor="body">Post a Comment</label>
                     <Field
                         component={AreaInput}
                         type="text"
                         name="body"
                         validate={[required, nonEmpty, isTrimmed]}
                     />
-                    <button type="button" onClick={this.displayForm}>Cancel</button>
+
                     <button
                         type="submit"
                         disabled={this.props.pristine || this.props.submitting}
                         className="createComment-button">
-                        Comment
+                        Submit
                     </button>
                 </form>            
             );

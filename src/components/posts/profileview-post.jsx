@@ -31,7 +31,8 @@ export class ProfileViewPost extends React.Component {
                     comments={post.comments.length} 
                     tags={post.tags}
                     ratings={post.ratings}
-                    body={post.body}  
+                    body={post.body}
+                    createdAt={post.createdAt}  
                     />
          });
 

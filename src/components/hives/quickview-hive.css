@@ -1,9 +1,22 @@
 .quickview-hive {
-    border: 1px solid #c3c300;
+    border: 1px solid yellow;
     margin: 1em;
+    position: relative;
 }
 
-.quickView-hive-link {
+.quickview-hive-link {
     text-decoration: none;
-    color: #c3c300;
+    color: yellow;
+}
+
+.quickview-hive-icon-container {
+    border-bottom: 1px solid yellow;
+    display: flex;
+}
+
+.quickview-hive-icon {
+    font-size: 50px;
+    margin: 0;
+    margin-right: 10px;
+    margin-left: 10px;
 }

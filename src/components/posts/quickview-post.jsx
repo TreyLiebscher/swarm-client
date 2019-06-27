@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import Ratings from './ratings';
 import slugify from 'slugify';
+import FormatDate from '../../helpers/date-format';
 import './quickview-post.css';
 
 export class QuickViewPost extends React.Component {
@@ -16,6 +17,9 @@ export class QuickViewPost extends React.Component {
             }
             return urlTitle;
         }
+
+        const date = FormatDate(this.props.createdAt);
+
         const ratings = () => {
             if(this.props.ratings.length !== 0){
                 return Math.round(this.props.ratings.reduce((a, b) => a + b) / this.props.ratings.length)
@@ -25,13 +29,15 @@ export class QuickViewPost extends React.Component {
         const bodyPreview = this.props.body.substring(0, 50);
         return (
             <div className="quickview-post" id={this.props.id}>
-                <Link className="quickview-post-title-link" to={`/posts/view/${this.props.id}/${urlTitleShorten(urlTitle)}`}><h3 className="quickview-post-title">{this.props.title}</h3></Link>
-                <p>{this.props.hive}</p>
-                <p>{this.props.author}</p>
+                <Link className="quickview-post-link" to={`/posts/view/${this.props.id}/${urlTitleShorten(urlTitle)}`}>
+                <h3 className="quickview-post-title">{this.props.title}</h3>
+                <p className="quickview-post-author">Posted by <span className="yellow">{this.props.author}</span> at</p>
+                <p className="quickview-post-date">{date}</p>
                 <Ratings ratings={ratings()} length={this.props.ratings.length}/>
                 <p className="quickview-post-bodypreview"><i>{bodyPreview}...</i></p>
                 <ul className="quickview-post-tags-container">{tags}</ul>
-                <p>Comments: {this.props.comments}</p>
+                <p className="quickview-post-comments">({this.props.comments} comments)</p>
+                </Link>
             </div>
         )
     }

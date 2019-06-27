@@ -1,7 +1,8 @@
 .profile-view-post-container {
     border-top: 2px solid yellow;
     border-bottom: 2px solid yellow;
-    width: 100%;
+    width: 90%;
+    margin: auto;
     margin-bottom: 20px;
 }
 

@@ -1,0 +1,37 @@
+.viewhive-page-container {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.viewhive-page-title {
+    color: yellow;
+}
+
+.viewhive-page-leave-button,
+.viewhive-page-join-button {
+    border: 1px solid yellow;
+    background-color: #1f1e1e;
+    color: yellow;
+    font-size: 16px;
+}
+
+.viewhive-page-link-container {
+    width: 40%;
+    margin: auto;
+}
+
+.viewhive-page-link {
+    text-decoration: none;
+    color: yellow;
+    width: 100%;
+    height: 100%;
+}
+
+.viewhive-page-link:hover {
+    cursor: pointer;
+}
+
+.viewhive-page-link-text {
+    border: 1px solid yellow;
+    padding: 10px;
+}

@@ -1,3 +1,20 @@
+.viewpost {
+    width: 90%;
+}
+
+.viewpost-hive-link {
+    text-decoration: none;
+    color: yellow;
+}
+
+.viewpost-hive-link:hover {
+    text-decoration: underline;
+}
+
+.viewpost-date {
+    font-size: 12px;
+}
+
 .viewpost-comment-container {
     list-style: none;
     padding: 0;
@@ -7,9 +24,13 @@
 }
 
 .viewpost-comment-author {
-    color: #c3c300;
+    color: yellow;
 }
 
 .viewpost-comment-body {
     text-align: center;
+}
+
+.yellow {
+    color: yellow;
 }
