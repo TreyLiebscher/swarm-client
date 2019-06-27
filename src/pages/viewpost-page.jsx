@@ -8,6 +8,7 @@ import { getProfile } from '../actions/users';
 import slugify from 'slugify';
 import Ratings from '../components/posts/ratings';
 import './viewpost-page.css';
+import FormatDate from '../helpers/date-format';
 
 export class ViewPostPage extends React.Component {
     constructor(props, context) {
@@ -33,6 +34,9 @@ export class ViewPostPage extends React.Component {
 
     render(){
         const post = this.props.view;
+
+        const date = FormatDate(this.props.view.createdAt);
+
         const comments = this.props.comments.map((comment, index) => {
             return <li key={index}>
                     <p className="viewpost-comment-author"><i>{comment.author} says:</i></p>
@@ -57,13 +61,12 @@ export class ViewPostPage extends React.Component {
                 return Math.round(this.props.view.ratings.reduce((a, b) => a + b) / this.props.view.ratings.length)
             }
         }
-
-        console.log('kiwi', this.props.view)
         return (
             <div className="viewpost">
-                <Link to={`/hives/view/${slugify(post.hive_title)}`}><p>{post.hive_title}</p></Link>
+                <Link className="viewpost-hive-link" to={`/hives/view/${slugify(post.hive_title)}`}><p>&#x2b21; {post.hive_title}</p></Link>
                 <h2>{post.title}</h2>
-                <h3>By: {post.author}</h3>
+                <p>By: <span className="yellow">{post.author}</span></p>
+                <p className="viewpost-date">{date}</p>
                 <Ratings ratings={ratings()} length={this.props.view.ratings.length}/>
                 <br />
                 {link()}
