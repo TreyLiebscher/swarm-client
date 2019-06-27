@@ -1,0 +1,24 @@
+.createComment-display-button {
+    background-color: #1f1e1e;
+    color: yellow;
+    border: 1px solid yellow;
+    font-size: 16px;
+    height: 30px;
+    width: 75%;
+    margin-top: 20px;    
+}
+
+.createComment-cancel {
+    display: flex;
+    margin-left: 16px;
+    margin-bottom: 5px;
+    background-color: #1f1e1e;
+    color: yellow;
+    border: 1px solid yellow;
+}
+
+.createComment-button {
+    background-color: #1f1e1e;
+    color: yellow;
+    border: 1px solid yellow;
+}
