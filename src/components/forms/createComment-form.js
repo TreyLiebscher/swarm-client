@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import AreaInput from './area-input';
-import {required, nonEmpty, isTrimmed} from '../../helpers/validators';
+import {required, nonEmpty} from '../../helpers/validators';
 import './forms.css';
 
 import {createComment} from '../../actions/comments';
@@ -56,7 +56,7 @@ export class CreateCommentForm extends React.Component {
                         component={AreaInput}
                         type="text"
                         name="body"
-                        validate={[required, nonEmpty, isTrimmed]}
+                        validate={[required, nonEmpty]}
                     />
 
                     <button
