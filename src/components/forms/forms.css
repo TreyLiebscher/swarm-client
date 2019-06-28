@@ -1,3 +1,19 @@
+.form-input-box {
+    font-size: 16px;
+    background-color: #1f1e1e;
+    border: 2px solid yellow;
+    color: white;
+    width: 90%;
+}
+
+.createPost-button {
+    background-color: #1f1e1e;
+    color: yellow;
+    border: 2px solid yellow;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
 .createComment-display-button {
     background-color: #1f1e1e;
     color: yellow;
