@@ -16,10 +16,10 @@ export class QuickViewHive extends React.Component {
                     </div>
                     <p className="quickview-hive-mission">{this.props.mission}</p>
                     <div className="quickview-hive-info-container">
-                        <p className="quickview-hive-info">{this.props.members} members</p>
-                        <p className="quickview-hive-info">{this.props.posts} posts</p>
+                        <p className="quickview-hive-info"><span className="white">{this.props.members}</span> members</p>
+                        <p className="quickview-hive-info"><span className="white">{this.props.posts}</span> posts</p>
                     </div>
-                    <p className="member-count">{this.props.members}</p>
+                    {/* <p className="member-count">{this.props.members}</p> */}
                 </Link>
             </div>
         )
