@@ -61,6 +61,12 @@ export class ViewPostPage extends React.Component {
                 return Math.round(this.props.view.ratings.reduce((a, b) => a + b) / this.props.view.ratings.length)
             }
         }
+
+        const moreCommentDisplayButton = () => {
+            if((this.props.view.totalComments / 5) > this.state.page){
+                return <button className="viewpost-more-button" onClick={this.nextComments}>More</button>
+            }
+        }
         return (
             <div className="viewpost">
                 <Link className="viewpost-hive-link" to={`/hives/view/${slugify(post.hive_title)}`}><p>&#x2b21; {post.hive_title}</p></Link>
@@ -74,7 +80,7 @@ export class ViewPostPage extends React.Component {
                 {postRaterDisplay()}
                 <CreateCommentForm post={post}/>
                 <ul className="viewpost-comment-container">{comments}</ul>
-                <button onClick={this.nextComments}>NEXT</button>
+                {moreCommentDisplayButton()}
             </div>
         )
     }
