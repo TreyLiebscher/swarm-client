@@ -31,6 +31,15 @@
     text-align: center;
 }
 
+.viewpost-more-button {
+    margin-bottom: 15px;
+    background-color: #1f1e1e;
+    color: yellow;
+    border: 1px solid yellow;
+    font-size: 20px;
+    width: 50%;
+}
+
 .yellow {
     color: yellow;
 }
