@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
 import {getProfile} from '../actions/users';
+import './createpost-page.css';
 
 import CreatePostForm from '../components/forms/createPost-form';
 
@@ -23,7 +24,8 @@ export class CreatePostPage extends React.Component {
 
         else {
             return (
-                <div>
+                <div className="createpost-page">
+                    <h2>Create a new post</h2>
                     <CreatePostForm hive={this.props.match.params.id} currentPost={this.props.post.post.post}/>
                 </div>
             )

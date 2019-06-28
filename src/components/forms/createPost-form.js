@@ -2,6 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import Input from './input';
+import AreaInput from './area-input';
 import {required, nonEmpty, length, isTrimmed} from '../../helpers/validators';
 import slugify from 'slugify';
 
@@ -62,10 +63,10 @@ export class CreatePostForm extends React.Component {
                 />
                 <label htmlFor="body">Body</label>
                 <Field
-                    component={Input}
+                    component={AreaInput}
                     type="text"
                     name="body"
-                    validate={[required, nonEmpty, isTrimmed]}
+                    validate={[required, nonEmpty]}
                 />
                 <label htmlFor="link">Link</label>
                 <Field

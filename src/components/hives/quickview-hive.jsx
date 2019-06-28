@@ -14,10 +14,12 @@ export class QuickViewHive extends React.Component {
                         <p className="quickview-hive-icon">&#x2b21;</p>
                         <h3>{this.props.title}</h3>
                     </div>
-
-                    <p>{this.props.mission}</p>
-                    <p>Members: {this.props.members}</p>
-                    <p>Posts: {this.props.posts}</p>
+                    <p className="quickview-hive-mission">{this.props.mission}</p>
+                    <div className="quickview-hive-info-container">
+                        <p className="quickview-hive-info">{this.props.members} members</p>
+                        <p className="quickview-hive-info">{this.props.posts} posts</p>
+                    </div>
+                    <p className="member-count">{this.props.members}</p>
                 </Link>
             </div>
         )
