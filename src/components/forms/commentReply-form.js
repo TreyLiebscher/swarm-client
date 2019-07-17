@@ -33,7 +33,7 @@ export class CommentReplyForm extends React.Component {
 
     render(){
 
-        console.log('kiwi', this.props.comment)
+
         // if(this.state.submitted === true){
         //     TODO *Close comment form/display comment form/etc*
         // }
