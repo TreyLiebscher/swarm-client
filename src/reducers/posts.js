@@ -16,7 +16,9 @@ import {
 
 import {
     CREATE_COMMENT_SUCCESS,
-    CREATE_COMMENT_ERROR
+    CREATE_COMMENT_ERROR,
+    COMMENT_REPLY_SUCCESS,
+    COMMENT_REPLY_ERROR
 } from '../actions/comments';
 
 const browseState = {
@@ -144,7 +146,22 @@ export function viewReducer(state = postViewState, action) {
         const newState = {...state, ...changedState};
         return newState;
     }
+    else if (action.type === COMMENT_REPLY_SUCCESS) {
+        console.log('kiwi', action.comment.feedback)
+        const changedState = {
+            comments: [...state.comments, ...action.comment.feedback], 
+            loading: false, 
+            error: null
+        };
+        const newState = {...state, ...changedState};
+        return newState;
+    }
     else if (action.type === CREATE_COMMENT_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === COMMENT_REPLY_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
