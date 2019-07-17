@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {viewPostById, postComments} from '../actions/posts';
 import CreateCommentForm from '../components/forms/createComment-form';
-import CommentReplyForm from '../components/forms/commentReply-form';
+import Comment from '../components/posts/comment';
 import PostRater from '../components/posts/post-rater';
 import { getProfile } from '../actions/users';
 import slugify from 'slugify';
@@ -38,12 +38,16 @@ export class ViewPostPage extends React.Component {
 
         const date = FormatDate(this.props.view.createdAt);
 
+        // const comments = this.props.comments.map((comment, index) => {
+        //     return <li key={index}>
+        //             <p className="viewpost-comment-author"><i>{comment.author} says:</i></p>
+        //             <p className="viewpost-comment-body">{comment.body}</p>
+        //             <CommentReplyForm comment={comment} />
+        //             </li>
+        // });
+
         const comments = this.props.comments.map((comment, index) => {
-            return <li key={index}>
-                    <p className="viewpost-comment-author"><i>{comment.author} says:</i></p>
-                    <p className="viewpost-comment-body">{comment.body}</p>
-                    <CommentReplyForm comment={comment} />
-                    </li>
+            return <Comment key={index} comment={comment} />
         });
 
         const link = () => {
