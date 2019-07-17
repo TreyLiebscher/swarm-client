@@ -33,3 +33,37 @@ export const createComment = (comment, post) => (dispatch, getState) => {
         dispatch(createCommentError(err));
     });
 }
+
+export const COMMENT_REPLY_SUCCESS = 'COMMENT_REPLY_SUCCESS';
+export const commentReplySuccess = (comment) => ({
+    type: COMMENT_REPLY_SUCCESS,
+    comment
+});
+
+export const COMMENT_REPLY_ERROR = 'COMMENT_REPLY_ERROR';
+export const commentReplyError = (error) => ({
+    type: COMMENT_REPLY_ERROR,
+    error
+});
+
+export const commentReply = (comment, post) => (dispatch, getState) => {
+    const userId = getState().userProfile.id;
+    return fetch(`${Comment_URL}reply`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'   
+        },
+        body: JSON.stringify({
+            user: userId,
+            body: comment.body,
+            comment: post
+        })
+    })
+    .then(res => res.json())
+    .then((comment) => dispatch(commentReplySuccess(comment)))
+    .catch(err => {
+        dispatch(commentReplyError(err));
+    });
+}
+
