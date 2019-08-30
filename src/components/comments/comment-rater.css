@@ -7,7 +7,7 @@
 }
 
 .comment-rater-button-container {
-    width: 70%;
+    width: 65%;
     margin: 0;
     margin-bottom: 5px;
     display: flex;
@@ -25,6 +25,29 @@
     flex: 1;
 }
 
+.comment-rater-display-button {
+    border-left: 1px solid yellow;
+    border-right: 1px solid yellow;
+    border-top: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+    background-color: #1f1e1e;
+    color: yellow;
+    width: 100%;
+    font-size: 16px;
+    height: 45px;
+}
+
+.comment-rater-close-button {
+    border-left: none;
+    border-right: 1px solid yellow;
+    border-top: none;
+    border-bottom: none;
+    background-color: #1f1e1e;
+    color: yellow;
+    width: 10%;
+    font-size: 16px;
+}
+
 .comment-rater-submit-button {
     border-left: 1px solid yellow;
     border-right: none;
@@ -32,6 +55,6 @@
     border-bottom: none;
     background-color: #1f1e1e;
     color: yellow;
-    width: 30%;
+    width: 25%;
     font-size: 16px;
 }

@@ -53,7 +53,7 @@ export default class Comment extends React.Component {
                     <div className="comment-control-container">
                         {commentRaterDisplay()}
                         <CommentReplyForm comment={this.props.comment} />
-                        <button onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                        <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
                     </div>
                 </li>
             )
@@ -63,8 +63,12 @@ export default class Comment extends React.Component {
                 <li >
                     <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
-                    <CommentReplyForm comment={this.props.comment} />
-                    <button onClick={this.showReplies}>Hide Replies ({this.props.comment.replies.length})</button>
+                    
+                    <div className="comment-control-container">
+                        {commentRaterDisplay()}
+                        <CommentReplyForm comment={this.props.comment} />
+                        <button className="comment-reply-hide-button" onClick={this.showReplies}>Hide Replies ({this.props.comment.replies.length})</button>
+                    </div>
                     <ul>
                         {replies}
                     </ul>
