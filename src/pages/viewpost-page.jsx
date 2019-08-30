@@ -47,7 +47,7 @@ export class ViewPostPage extends React.Component {
         // });
 
         const comments = this.props.comments.map((comment, index) => {
-            return <Comment key={index} comment={comment} />
+            return <Comment key={index} comment={comment} post={post.id} user={this.props.user.id}/>
         });
 
         const link = () => {
