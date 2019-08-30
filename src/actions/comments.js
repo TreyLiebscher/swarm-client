@@ -67,3 +67,37 @@ export const commentReply = (comment, post) => (dispatch, getState) => {
     });
 }
 
+export const RATE_COMMENT_SUCCESS = 'RATE_COMMENT_SUCCESS';
+export const rateCommentSuccess = (comment) => ({
+    type: RATE_COMMENT_SUCCESS,
+    comment
+});
+
+export const RATE_COMMENT_ERROR = 'RATE_COMMENT_ERROR';
+export const rateCommentError = error => ({
+    type: RATE_COMMENT_ERROR,
+    error
+});
+
+export const rateComment = (comment) => (dispatch, getState) => {
+    const userId = getState().userProfile.id;
+    return fetch(`${API_BASE_URL}comments/rate`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'   
+        },
+        body: JSON.stringify({
+            user: userId,
+            comment: comment.comment,
+            post: comment.post,
+            rating: comment.rating
+        })
+    })
+    .then(res => res.json())
+    .then((comment) => dispatch(rateCommentSuccess(comment)))
+    .catch(err => {
+        dispatch(rateComment(err))
+    });
+}
+
