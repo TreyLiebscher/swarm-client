@@ -8,8 +8,11 @@ export default class Comment extends React.Component {
     constructor(props){
         super(props);
         this.showReplies = this.showReplies.bind(this);
+        this.showRater = this.showRater.bind(this);
         this.state = {
-            replies: false
+            replies: false,
+            rater_visible: false,
+            reply_form_visible: false
         }
     }
 
@@ -18,6 +21,18 @@ export default class Comment extends React.Component {
             this.setState({replies: true});
         } else {
             this.setState({replies: false})
+        }
+    }
+
+    showRater(){
+        if(this.state.rater_visible === false){
+            this.setState({replies: false});
+            this.setState({reply_form_visible: false});
+            this.setState({rater_visible: true});
+        } else {
+            this.setState({replies: false});
+            this.setState({reply_form_visible: false});
+            this.setState({rater_visible: false});
         }
     }
 
@@ -42,7 +57,13 @@ export default class Comment extends React.Component {
             }
         }
 
-        if(this.state.replies === false){
+        const raterDisplayButton = () => {
+            if(!(this.props.comment.raters.includes(this.props.user))){
+                return <button className="comment-reply-display-button" onClick={this.showRater}>RATE ({this.props.comment.replies.length})</button>
+            }
+        }
+
+        if(this.state.replies === false && this.state.rater_visible === false && this.state.reply_form_visible === false){
             return (
                 <li >
                     <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
@@ -51,12 +72,28 @@ export default class Comment extends React.Component {
 
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
                     <div className="comment-control-container">
-                        {commentRaterDisplay()}
+                        {raterDisplayButton()}
                         <CommentReplyForm comment={this.props.comment} />
                         <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
                     </div>
+                    
                 </li>
             )
+        }
+        else if(this.state.rater_visible === true) {
+                return (
+                    <li>
+                        <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
+                        <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
+
+
+                        <p className="viewpost-comment-body">{this.props.comment.body}</p>
+                        <div className="comment-control-container">
+                            <button className="comment-reply-display-button" onClick={this.showRater}>CANCEL</button>
+                            {commentRaterDisplay()}
+                        </div>
+                    </li>
+                )
         }
         else {
             return (
