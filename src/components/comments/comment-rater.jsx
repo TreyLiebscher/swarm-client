@@ -91,12 +91,9 @@ export class CommentRater extends React.Component {
     }
 
     renderRater(){
-        if(this.state.visible === false || this.state.submitted === true){
-            return <button className="comment-rater-display-button" type="button" onClick={this.displayRater}>RATE</button>
-        } else {
             return (
             <div className="comment-rater-container">
-                <button className="comment-rater-close-button" type="button" onClick={this.displayRater}>X</button>
+                {/* <button className="comment-rater-close-button" type="button" onClick={this.displayRater}>X</button> */}
                 <div className="comment-rater-button-container">
                     <button className="comment-rater-button" type="button" id="1" onClick={this.setRating}>{this.state.button1}</button>
                     <button className="comment-rater-button" type="button" id="2" onClick={this.setRating}>{this.state.button2}</button>
@@ -107,7 +104,7 @@ export class CommentRater extends React.Component {
                 <button className="comment-rater-submit-button" type="button" onClick={this.submitRating}>SUBMIT</button>
             </div>
             )
-        }
+        // }
     }
 
     render(){

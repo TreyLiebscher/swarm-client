@@ -1,13 +1,13 @@
 .comment-rater-container {
     border: 2px solid yellow;
     margin-bottom: 10px;
-    width: 100%;
+    /* width: 100%; */
     margin: auto;
     display:flex;
 }
 
 .comment-rater-button-container {
-    width: 65%;
+    width: 70%;
     margin: 0;
     margin-bottom: 5px;
     display: flex;
@@ -55,6 +55,6 @@
     border-bottom: none;
     background-color: #1f1e1e;
     color: yellow;
-    width: 25%;
+    width: 30%;
     font-size: 16px;
 }
