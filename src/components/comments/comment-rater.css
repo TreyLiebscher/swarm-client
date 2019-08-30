@@ -1,0 +1,37 @@
+.comment-rater-container {
+    border: 2px solid yellow;
+    margin-bottom: 10px;
+    width: 100%;
+    margin: auto;
+    display:flex;
+}
+
+.comment-rater-button-container {
+    width: 70%;
+    margin: 0;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.comment-rater-button {
+    color: yellow;
+    background-color: #1f1e1e;
+    /* max-width: 20%; */
+    /* max-height: 50px; */
+    font-size: 40px;
+    border: none;
+    outline: none;
+    padding: 0;
+    flex: 1;
+}
+
+.comment-rater-submit-button {
+    border-left: 1px solid yellow;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    background-color: #1f1e1e;
+    color: yellow;
+    width: 30%;
+    font-size: 16px;
+}
