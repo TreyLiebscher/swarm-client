@@ -12,7 +12,7 @@ export class CommentReplyForm extends React.Component {
         this.displayForm = this.displayForm.bind(this);
         this.state = {
             submitted: false,
-            visible: false
+            visible: true
         }
     }
     
@@ -40,7 +40,7 @@ export class CommentReplyForm extends React.Component {
 
         if(this.state.visible === false){
             return (
-                <button className="commentReply-display-button"onClick={this.displayForm}>Reply</button>
+                <div></div>
             )
         }
         else {
@@ -50,7 +50,7 @@ export class CommentReplyForm extends React.Component {
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
-                    <button type="button" className="commentReply-cancel" onClick={this.displayForm}>X</button>
+                    {/* <button type="button" className="commentReply-cancel" onClick={this.displayForm}>X</button> */}
                     <label htmlFor="body">Reply</label>
                     <Field
                         component={AreaInput}
