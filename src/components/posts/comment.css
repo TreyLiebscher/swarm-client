@@ -1,6 +1,9 @@
-.comment-control-container {
+/* .comment-control-container {
     display: flex;
-    flex-direction: column;
+} */
+
+.comment-control-box {
+    display: flex;
 }
 
 .comment-reply-display-button {
@@ -12,6 +15,7 @@
     border-left: 1px solid yellow;
     font-size: 16px;
     height: 45px;
+    flex: 1;
 }
 
 .comment-reply-hide-button {
@@ -23,4 +27,5 @@
     border-left: 1px solid yellow;
     font-size: 16px;
     height: 45px;
+    flex: 1;
 }
