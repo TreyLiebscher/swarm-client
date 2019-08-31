@@ -9,6 +9,7 @@ export default class Comment extends React.Component {
         super(props);
         this.showReplies = this.showReplies.bind(this);
         this.showRater = this.showRater.bind(this);
+        this.showReplyForm = this.showReplyForm.bind(this);
         this.state = {
             replies: false,
             rater_visible: false,
@@ -19,8 +20,12 @@ export default class Comment extends React.Component {
     showReplies(){
         if(this.state.replies === false){
             this.setState({replies: true});
+            this.setState({reply_form_visible: false});
+            this.setState({rater_visible: false});
         } else {
-            this.setState({replies: false})
+            this.setState({replies: false});
+            this.setState({reply_form_visible: false});
+            this.setState({rater_visible: false});
         }
     }
 
@@ -29,6 +34,18 @@ export default class Comment extends React.Component {
             this.setState({replies: false});
             this.setState({reply_form_visible: false});
             this.setState({rater_visible: true});
+        } else {
+            this.setState({replies: false});
+            this.setState({reply_form_visible: false});
+            this.setState({rater_visible: false});
+        }
+    }
+
+    showReplyForm(){
+        if(this.state.reply_form_visible === false){
+            this.setState({replies: false});
+            this.setState({reply_form_visible: true});
+            this.setState({rater_visible: false});
         } else {
             this.setState({replies: false});
             this.setState({reply_form_visible: false});
@@ -59,7 +76,7 @@ export default class Comment extends React.Component {
 
         const raterDisplayButton = () => {
             if(!(this.props.comment.raters.includes(this.props.user))){
-                return <button className="comment-reply-display-button" onClick={this.showRater}>RATE ({this.props.comment.replies.length})</button>
+                return <button className="comment-reply-display-button" onClick={this.showRater}>RATE</button>
             }
         }
 
@@ -71,10 +88,12 @@ export default class Comment extends React.Component {
 
 
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
-                    <div className="comment-control-container">
-                        {raterDisplayButton()}
-                        <CommentReplyForm comment={this.props.comment} />
+                    <div className="comment-control-box">
+                    {raterDisplayButton()}
+                        <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
                         <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                    </div>
+                    <div className="comment-control-container">
                     </div>
                     
                 </li>
@@ -88,27 +107,53 @@ export default class Comment extends React.Component {
 
 
                         <p className="viewpost-comment-body">{this.props.comment.body}</p>
-                        <div className="comment-control-container">
+                        <div className="comment-control-box">
                             <button className="comment-reply-display-button" onClick={this.showRater}>CANCEL</button>
+                            <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
+                            <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                        </div>
+                        <div className="comment-control-container">
                             {commentRaterDisplay()}
                         </div>
                     </li>
                 )
         }
+        else if(this.state.reply_form_visible === true) {
+            return (
+                <li>
+                    <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
+                    <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
+
+
+                    <p className="viewpost-comment-body">{this.props.comment.body}</p>
+                    <div className="comment-control-box">
+                        {raterDisplayButton()}
+                        <button className="comment-reply-display-button" onClick={this.showReplyForm}>CANCEL</button>
+                        <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                    </div>
+                    <div className="comment-control-container">
+                        <CommentReplyForm comment={this.props.comment} />
+                    </div>
+                </li>
+            )
+    }
         else {
             return (
                 <li >
                     <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
+                    <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
                     
-                    <div className="comment-control-container">
-                        {commentRaterDisplay()}
-                        <CommentReplyForm comment={this.props.comment} />
+                    <div className="comment-control-box">
+                        {raterDisplayButton()}
+                        <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
                         <button className="comment-reply-hide-button" onClick={this.showReplies}>Hide Replies ({this.props.comment.replies.length})</button>
                     </div>
+                    <div className="comment-control-container">
                     <ul>
                         {replies}
                     </ul>
+                    </div>
                 </li>
             )
         }
