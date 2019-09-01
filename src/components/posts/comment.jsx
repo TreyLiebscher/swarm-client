@@ -56,11 +56,11 @@ export default class Comment extends React.Component {
     render(){
 
         const replies = this.props.comment.replies.map((reply, index) => {
-            return <li key={index}>
+            return  <li className="comment-reply" key={index}>
                         <p className="viewpost-comment-author"><i>{reply.author} says:</i></p>
                         <p className="viewpost-comment-body">{reply.body}</p>
                     </li>
-        })
+        });
 
         const ratings = () => {
             if(this.props.comment.ratings.length !== 0){
@@ -82,14 +82,12 @@ export default class Comment extends React.Component {
 
         if(this.state.replies === false && this.state.rater_visible === false && this.state.reply_form_visible === false){
             return (
-                <li >
+                <li className="comment-container">
                     <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
                     <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
-
-
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
                     <div className="comment-control-box">
-                    {raterDisplayButton()}
+                        {raterDisplayButton()}
                         <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
                         <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
                     </div>
@@ -101,7 +99,7 @@ export default class Comment extends React.Component {
         }
         else if(this.state.rater_visible === true) {
                 return (
-                    <li>
+                    <li className="comment-container">
                         <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
                         <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
 
@@ -120,7 +118,7 @@ export default class Comment extends React.Component {
         }
         else if(this.state.reply_form_visible === true) {
             return (
-                <li>
+                <li className="comment-container">
                     <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
                     <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
 
@@ -139,7 +137,7 @@ export default class Comment extends React.Component {
     }
         else {
             return (
-                <li >
+                <li className="comment-container">
                     <p className="viewpost-comment-author"><i>{this.props.comment.author} says:</i></p>
                     <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
@@ -147,10 +145,10 @@ export default class Comment extends React.Component {
                     <div className="comment-control-box">
                         {raterDisplayButton()}
                         <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
-                        <button className="comment-reply-hide-button" onClick={this.showReplies}>Hide Replies ({this.props.comment.replies.length})</button>
+                        <button className="comment-reply-display-button" onClick={this.showReplies}>Hide Replies</button>
                     </div>
                     <div className="comment-control-container">
-                    <ul>
+                    <ul className="comment-reply-container">
                         {replies}
                     </ul>
                     </div>

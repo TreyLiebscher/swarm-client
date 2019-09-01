@@ -140,7 +140,6 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === RATE_COMMENT_SUCCESS) {
-        console.log('KIWI action rate', action.comment.post.comments)
         const changedState = {
             comments: action.comment.post.comments, 
             loading: false, 
@@ -150,7 +149,6 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === CREATE_COMMENT_SUCCESS) {
-        console.log('kiwi, comment created', action.comment.userFeedback.comments)
         const changedState = {
             comments: action.comment.userFeedback.comments, 
             loading: false, 
@@ -190,6 +188,11 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === POST_COMMENTS_ERROR) {
+        const changedState = {loading: false, error: action.error};
+        const newState = {...state, ...changedState};
+        return newState;
+    }
+    else if (action.type === RATE_COMMENT_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
