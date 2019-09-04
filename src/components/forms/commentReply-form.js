@@ -18,8 +18,10 @@ export class CommentReplyForm extends React.Component {
     
     
     onSubmit(values) {
+        const homePost = this.props.comment.post;
         const post = this.props.comment._id;
-        this.props.dispatch(commentReply(values, post));
+
+        this.props.dispatch(commentReply(values, post, homePost));
         this.setState({visible: false});
     }
 
