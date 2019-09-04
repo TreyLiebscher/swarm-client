@@ -46,7 +46,7 @@ export const commentReplyError = (error) => ({
     error
 });
 
-export const commentReply = (comment, post) => (dispatch, getState) => {
+export const commentReply = (comment, post, homePost) => (dispatch, getState) => {
     const userId = getState().userProfile.id;
     return fetch(`${Comment_URL}reply`, {
         method: 'POST',
@@ -57,7 +57,8 @@ export const commentReply = (comment, post) => (dispatch, getState) => {
         body: JSON.stringify({
             user: userId,
             body: comment.body,
-            comment: post
+            comment: post,
+            homePost: homePost 
         })
     })
     .then(res => res.json())
