@@ -150,7 +150,8 @@ export function viewReducer(state = postViewState, action) {
     }
     else if (action.type === CREATE_COMMENT_SUCCESS) {
         const changedState = {
-            comments: action.comment.userFeedback.comments, 
+            comments: action.comment.userFeedback.comments,
+            currentPage: action.comment.currentPage, 
             loading: false, 
             error: null
         };
@@ -158,9 +159,8 @@ export function viewReducer(state = postViewState, action) {
         return newState;
     }
     else if (action.type === COMMENT_REPLY_SUCCESS) {
-        console.log('kiwi', action.comment.feedback)
         const changedState = {
-            comments: [...state.comments, ...action.comment.feedback], 
+            comments: action.comment.feedback.comments,
             loading: false, 
             error: null
         };
