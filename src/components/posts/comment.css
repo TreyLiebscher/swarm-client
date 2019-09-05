@@ -42,3 +42,8 @@
     border: 1px solid #4c4a4a;
     margin: 1em;
 }
+
+.viewpost-comment-date {
+    margin: 0px;
+    font-size: 11px;
+}
