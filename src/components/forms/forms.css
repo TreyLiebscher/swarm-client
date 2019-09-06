@@ -1,13 +1,13 @@
 .form-input-box {
     font-size: 16px;
-    background-color: #1f1e1e;
+    background-color: black;
     border: 2px solid yellow;
     color: white;
     width: 90%;
 }
 
 .createPost-button {
-    background-color: #1f1e1e;
+    background-color: black;
     color: yellow;
     border: 2px solid yellow;
     margin-top: 15px;
@@ -15,7 +15,7 @@
 }
 
 .createComment-display-button {
-    background-color: #1f1e1e;
+    background-color: black;
     color: yellow;
     border: 1px solid yellow;
     font-size: 16px;
@@ -29,13 +29,13 @@
     font-size: 30px;
     margin-left: 16px;
     margin-bottom: 5px;
-    background-color: #1f1e1e;
+    background-color: black;
     color: yellow;
     border: 1px solid yellow;
 }
 
 .createComment-button {
-    background-color: #1f1e1e;
+    background-color: black;
     color: yellow;
     border: 1px solid yellow;
     width: 50%;
@@ -43,7 +43,7 @@
 }
 
 .commentReply-display-button {
-    background-color: #1f1e1e;
+    background-color: black;
     color: yellow;
     border-top: none;
     border-bottom: 1px solid yellow;

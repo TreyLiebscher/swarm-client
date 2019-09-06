@@ -38,14 +38,6 @@ export class ViewPostPage extends React.Component {
 
         const date = FormatDate(this.props.view.createdAt);
 
-        // const comments = this.props.comments.map((comment, index) => {
-        //     return <li key={index}>
-        //             <p className="viewpost-comment-author"><i>{comment.author} says:</i></p>
-        //             <p className="viewpost-comment-body">{comment.body}</p>
-        //             <CommentReplyForm comment={comment} />
-        //             </li>
-        // });
-
         const comments = this.props.comments.map((comment, index) => {
             return <Comment key={index} comment={comment} post={post.id} user={this.props.user.id}/>
         });

@@ -12,7 +12,8 @@ export class NavBar extends React.Component {
                 <div className="logo-box">
                     <Link to={`/`} className="logo-link">
                         <h1 className="title">
-                            <span className="s1 logo">S</span><span className="s2 logo">W</span><span className="s3 logo">A</span><span className="s4 logo">R</span><span className="s5 logo">M</span><span className="s6 logo">E</span><span className="s7 logo">R</span>
+                            {/* <span className="s1 logo">S</span><span className="s2 logo">W</span><span className="s3 logo">A</span><span className="s4 logo">R</span><span className="s5 logo">M</span><span className="s6 logo">E</span><span className="s7 logo">R</span> */}
+                            SWARMER
                         </h1>
                     </Link>
                 </div>

@@ -65,6 +65,12 @@ export default class Comment extends React.Component {
                     </li>
         });
 
+        const displayRepliesButton = () => {
+            if(this.props.comment.replies.length !== 0){
+                return <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+            }
+        }
+
         const ratings = () => {
             if(this.props.comment.ratings.length !== 0){
                 return Math.round(this.props.comment.ratings.reduce((a, b) => a + b) / this.props.comment.ratings.length)
@@ -93,7 +99,7 @@ export default class Comment extends React.Component {
                     <div className="comment-control-box">
                         {raterDisplayButton()}
                         <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
-                        <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                        {displayRepliesButton()}
                     </div>
                     <div className="comment-control-container">
                     </div>
@@ -111,7 +117,7 @@ export default class Comment extends React.Component {
                         <div className="comment-control-box">
                             <button className="comment-reply-display-button" onClick={this.showRater}>CANCEL</button>
                             <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
-                            <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                            {displayRepliesButton()}
                         </div>
                         <div className="comment-control-container">
                             {commentRaterDisplay()}
@@ -129,7 +135,7 @@ export default class Comment extends React.Component {
                     <div className="comment-control-box">
                         {raterDisplayButton()}
                         <button className="comment-reply-display-button" onClick={this.showReplyForm}>CANCEL</button>
-                        <button className="comment-reply-display-button" onClick={this.showReplies}>View Replies ({this.props.comment.replies.length})</button>
+                        {displayRepliesButton()}
                     </div>
                     <div className="comment-control-container">
                         <CommentReplyForm comment={this.props.comment} />
