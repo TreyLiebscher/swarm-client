@@ -1,5 +1,5 @@
 .viewpost {
-    width: 90%;
+    width: 100%;
 }
 
 .viewpost-hive-link {
@@ -33,7 +33,7 @@
 
 .viewpost-more-button {
     margin-bottom: 15px;
-    background-color: #1f1e1e;
+    background-color: black;
     color: yellow;
     border: 1px solid yellow;
     font-size: 20px;

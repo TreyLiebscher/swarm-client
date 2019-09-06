@@ -4,12 +4,12 @@
     width: 30%;
     height: 100%;
     font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
-    color: yellow;
+    color: #f85236;
 }
 
 .navmenu-button {
     height: 100%;
-    border-left: 1px solid yellow;
+    border-left: 1px solid #f85236;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -21,8 +21,8 @@
 }
 
 .navmenu-list {
-    background-color: #1f1e1e;
-    border-left: 1px solid yellow;
+    background-color: black;
+    border-left: 1px solid #f85236;
     list-style: none;
     position: absolute;
     margin-top: 2px;
@@ -33,7 +33,7 @@
 }
 
 .navmenu-item {
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid #f85236;
     line-height: 50px;
 }
 
@@ -44,5 +44,5 @@
 
 .navmenu-link {
     text-decoration: none;
-    color: yellow;
+    color: #f85236;
 }

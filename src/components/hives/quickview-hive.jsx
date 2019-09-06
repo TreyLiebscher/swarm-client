@@ -12,7 +12,7 @@ export class QuickViewHive extends React.Component {
                 <Link className="quickview-hive-link" to={`/hives/view/${slugify(this.props.title)}`}>
                     <div className="quickview-hive-icon-container">
                         <p className="quickview-hive-icon">&#x2b21;</p>
-                        <h3>{this.props.title}</h3>
+                        <h3 className="quickview-hive-title">{this.props.title}</h3>
                     </div>
                     <p className="quickview-hive-mission">{this.props.mission}</p>
                     <div className="quickview-hive-info-container">

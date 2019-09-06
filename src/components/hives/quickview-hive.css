@@ -1,16 +1,16 @@
 .quickview-hive {
-    border: 1px solid yellow;
+    background: linear-gradient(#9903b1, #050c5f);
     margin: 1em;
     position: relative;
 }
 
 .quickview-hive-link {
     text-decoration: none;
-    color: yellow;
+    color: orange;
 }
 
 .quickview-hive-icon-container {
-    border-bottom: 1px solid yellow;
+    border-bottom: 1px solid white;
     display: flex;
 }
 
@@ -19,6 +19,17 @@
     margin: 0;
     margin-right: 10px;
     margin-left: 10px;
+    background: -webkit-linear-gradient(orange, #f3086a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quickview-hive-title {
+    background: -webkit-linear-gradient(yellow, orange);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .quickview-hive-mission {
