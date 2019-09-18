@@ -4,15 +4,16 @@
     width: 30%;
     height: 100%;
     font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
-    color: #f85236;
+    color: black;
 }
 
 .navmenu-button {
     height: 100%;
-    border-left: 1px solid #f85236;
+    border-left: 2px solid black;
     align-items: center;
     justify-content: center;
     display: flex;
+    font-family: 'Courier', 'sans-serif';
 }
 
 .navmenu-button:hover,
@@ -21,8 +22,8 @@
 }
 
 .navmenu-list {
-    background-color: black;
-    border-left: 1px solid #f85236;
+    background-color: #fe6c01;
+    border-left: 2px solid black;
     list-style: none;
     position: absolute;
     margin-top: 2px;
@@ -33,8 +34,9 @@
 }
 
 .navmenu-item {
-    border-bottom: 1px solid #f85236;
+    border-bottom: 2px solid black;
     line-height: 50px;
+    font-family: 'Courier', 'sans-serif';
 }
 
 .navmenu-item:hover {
@@ -44,5 +46,5 @@
 
 .navmenu-link {
     text-decoration: none;
-    color: #f85236;
+    color: black;
 }
