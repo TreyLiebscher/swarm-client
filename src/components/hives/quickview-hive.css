@@ -1,17 +1,22 @@
 .quickview-hive {
-    background: linear-gradient(#9903b1, #050c5f);
+    /* background: linear-gradient(#9903b1, #050c5f); */
+    background: white;
+    color: black;
     margin: 1em;
     position: relative;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 .quickview-hive-link {
     text-decoration: none;
-    color: orange;
+    color: black;
 }
 
 .quickview-hive-icon-container {
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid black;
     display: flex;
+    color: black;
 }
 
 .quickview-hive-icon {
@@ -19,32 +24,37 @@
     margin: 0;
     margin-right: 10px;
     margin-left: 10px;
-    background: -webkit-linear-gradient(orange, #f3086a);
+    /* background: -webkit-linear-gradient(orange, #f3086a);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 .quickview-hive-title {
-    background: -webkit-linear-gradient(yellow, orange);
+    /* background: -webkit-linear-gradient(orange, #f3086a);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
+
+    /* color: #feaa01; */
+    font-family: 'Courier', 'sans-serif';
+    font-weight: 500;
 }
 
 .quickview-hive-mission {
-    font-style: italic;
-    color: white;
+    font-family: 'Courier';
+    font-size: 14px;
 }
 
 .quickview-hive-info-container {
     display: flex;
     justify-content: center;
-    border-top: 2px dotted white;
+    border-top: 2px dotted black;
 }
 
 .quickview-hive-info {
     margin: .5em;
+    font-family: 'Courier', 'sans-serif';
 }
 
 .member-count {
@@ -58,5 +68,5 @@
 }
 
 .white {
-    color: white;
+    color: #fe6c01;
 }
