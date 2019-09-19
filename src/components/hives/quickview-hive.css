@@ -17,6 +17,7 @@
     border-bottom: 2px solid black;
     display: flex;
     color: black;
+    background: linear-gradient(#9903b1, #050c5f);
 }
 
 .quickview-hive-icon {
@@ -24,19 +25,17 @@
     margin: 0;
     margin-right: 10px;
     margin-left: 10px;
-    /* background: -webkit-linear-gradient(orange, #f3086a);
+    background: -webkit-linear-gradient(orange, #f3086a);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
 }
 
 .quickview-hive-title {
-    /* background: -webkit-linear-gradient(orange, #f3086a);
+    background: -webkit-linear-gradient(orange, #f3086a);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; */
-
-    /* color: #feaa01; */
+    -webkit-text-fill-color: transparent;
     font-family: 'Courier', 'sans-serif';
     font-weight: 500;
 }
