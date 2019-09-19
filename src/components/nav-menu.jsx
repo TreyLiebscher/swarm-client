@@ -48,13 +48,13 @@ export function NavMenu(props){
     if(active === false){
         return (
             <div className="navmenu">
-                <div className="navmenu-button" onClick={() => setActive(true)}>{name_manager()}</div>
+                <div className="navmenu-button" onClick={() => setActive(true)}>&#x2b21;</div>
             </div>
         )
     } else {
         return (
             <div className="navmenu">
-                <div className="navmenu-button" onClick={() => setActive(false)}>Close</div>
+                <div className="navmenu-button" onClick={() => setActive(false)}>&#x2b21;</div>
                     {button_manager()}
             </div>
         )

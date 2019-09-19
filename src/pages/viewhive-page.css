@@ -1,28 +1,58 @@
 .viewhive-page-container {
     width: 90%;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-.viewhive-page-title {
-    color: yellow;
+.viewhive-page-hive-info-container {
+    color: black;
+    background: white;
+    border-radius: 5px;
 }
+
+.viewhive-page-title-container {
+    border-bottom: 2px solid black;
+    display: inline-block;
+    width: 100%;
+}
+
+.viewhive-page-info-container-row {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.viewhive-page-mission-label {
+    margin: 0;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding-left: 5px;
+    width: 30%;
+    font-size: 12px;
+}
+
 
 .viewhive-page-leave-button,
 .viewhive-page-join-button {
-    border: 1px solid yellow;
-    background-color: black;
-    color: yellow;
+    border: 2px solid black;
+    background:none;
     font-size: 16px;
+    width: 40%;
+    height: 50px;
+    margin-top: 15px;
 }
 
 .viewhive-page-link-container {
     width: 40%;
+    height: 50px;
     margin: auto;
+    display: inline-block;
 }
 
 .viewhive-page-link {
+    color: inherit;
     text-decoration: none;
-    color: yellow;
     width: 100%;
     height: 100%;
 }
@@ -32,6 +62,7 @@
 }
 
 .viewhive-page-link-text {
-    border: 1px solid yellow;
+    border: 2px solid black;
     padding: 10px;
+    margin: 0;
 }

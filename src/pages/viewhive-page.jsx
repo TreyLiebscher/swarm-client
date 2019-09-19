@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {viewHiveByTitle, joinHive, leaveHive} from '../actions/hives';
+import {FormatYear} from '../helpers/date-format';
 import QuickViewPost from '../components/posts/quickview-post';
 import './viewhive-page.css'
 
@@ -29,6 +30,7 @@ export class ViewHivePage extends React.Component {
 
     render(){
         const hive = this.props.view;
+        const estDate = FormatYear(hive.createdAt);
         const posts = this.props.view.posts.map((post, index) => {
            return <QuickViewPost 
                     id={post._id}  
@@ -58,14 +60,26 @@ export class ViewHivePage extends React.Component {
 
         return (
             <div className="viewhive-page-container">
-                <h2 className="viewhive-page-title">&#x2b21; {hive.title}</h2>
-                <h3>{hive.mission}</h3>
-                <p>Founder: {hive.founder}</p>
-                {joinButton()}
-                <p>Members: {members}</p>
-                <div className="viewhive-page-link-container">
-                    <Link className="viewhive-page-link" to={`/posts/create/${hive.id}`}><p className="viewhive-page-link-text">+Create Post</p></Link>
-                </div>
+                <div className="viewhive-page-hive-info-container">
+                    <div className="viewhive-page-title-container">
+                        <h2 className="viewhive-page-title">&#x2b21; {hive.title}</h2>
+                        <p>est. {estDate}</p>
+                    </div>
+                    <div className="viewhive-page-info-container-row">
+                        <p className="viewhive-page-mission-label">MISSION</p>
+                        <h3>{hive.mission}</h3>
+                    </div>
+                    <div className="viewhive-page-info-container-row">
+                        <p className="viewhive-page-mission-label">FOUNDER</p>
+                        <p>{hive.founder}</p>                    
+                    </div>
+
+                    {joinButton()}
+                    <p>Members: {members}</p>
+                    <div className="viewhive-page-link-container">
+                        <Link className="viewhive-page-link" to={`/posts/create/${hive.id}`}><p className="viewhive-page-link-text">+Create Post</p></Link>
+                    </div>
+                </div>    
                 {posts}
             </div>
         )
