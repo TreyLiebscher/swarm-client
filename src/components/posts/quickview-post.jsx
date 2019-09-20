@@ -31,7 +31,7 @@ export class QuickViewPost extends React.Component {
             <div className="quickview-post" id={this.props.id}>
                 <Link className="quickview-post-link" to={`/posts/view/${this.props.id}/${urlTitleShorten(urlTitle)}`}>
                 <h3 className="quickview-post-title">{this.props.title}</h3>
-                <p className="quickview-post-author">Posted by <span className="yellow">{this.props.author}</span> at</p>
+                <p className="quickview-post-author">Posted by <span className="white">&#x2b21; {this.props.author}</span> at</p>
                 <p className="quickview-post-date">{date}</p>
                 <Ratings ratings={ratings()} length={this.props.ratings.length}/>
                 <p className="quickview-post-bodypreview"><i>{bodyPreview}...</i></p>

@@ -25,7 +25,7 @@ export class CreatePostPage extends React.Component {
         else {
             return (
                 <div className="createpost-page">
-                    <h2>Create a new post</h2>
+                    <h2 className="form-title">Create a new post</h2>
                     <CreatePostForm hive={this.props.match.params.id} currentPost={this.props.post.post.post}/>
                 </div>
             )

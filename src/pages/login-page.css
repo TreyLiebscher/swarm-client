@@ -1,0 +1,26 @@
+.form-container {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.form-title {
+    color: white;
+    margin: 0;
+    background: #00298a;
+    height: 50px;
+    line-height: 50px;
+}
+
+.redirect-message {
+    background-color: #5c7cc7;
+    margin: 0;
+    border: none;
+    height: 50px;
+    line-height: 50px;
+    font-size:18px;
+}
+
+.form-link {
+    color: white;
+    text-decoration: none;
+}

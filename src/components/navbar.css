@@ -5,17 +5,17 @@
   top: 0;
   width: 100%;
   height: 85px;
-  background: linear-gradient(#9903b1, #050c5f);
-  /* background:#fe6c01; */
-  color: black;
+  /* background: linear-gradient(#014dfe, #01096d); */
+  background: #00298a;
+  color: white;
 }
 
 .title {
-  background: -webkit-linear-gradient(orange, #f3086a);
-    /* background: -webkit-linear-gradient(#fe6c01, black); */
+  /* background: -webkit-linear-gradient(orange, #f3086a);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  color: white;
   font-size: 60px;
   font-family: 'Libre Barcode 39 Text', cursive;
   font-weight: normal;
