@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
-
+import './login-page.css';
 import SignupForm from '../components/forms/signup-form';
 
 // import './signupPage.css';
@@ -16,10 +16,10 @@ export function SignupPage(props) {
     // }
 
     return (
-        <div className="home">
-            <h2>Signup for Swarmer</h2>
+        <div className="form-container">
+            <h2 className="form-title">Signup for Swarmer</h2>
             <SignupForm />
-            <p>Already have an account? <Link to="/login" className="form-link">Login</Link></p>
+            <p className="redirect-message">Already have an account? <Link to="/login" className="form-link">Login</Link></p>
             {/* <button onClick={demoLogin} className="login-button demo">Demo</button> */}
         </div>
     );

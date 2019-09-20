@@ -68,9 +68,9 @@ export class HomePage extends React.Component {
         return (
             <div className="home-page-container">
                 <LoadingMessage loading={this.props.browse.loading} />
-                <p>Page {this.props.browse.currentPage}/{this.props.browse.pages}</p>
+                {/* <p>Page {this.props.browse.currentPage}/{this.props.browse.pages}</p>
                 {backButton()}
-                {nextButton()}
+                {nextButton()} */}
                 {hives}
                 <p>Page {this.props.browse.currentPage}/{this.props.browse.pages}</p>
                 {backButton()}

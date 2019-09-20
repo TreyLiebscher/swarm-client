@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
+import './login-page.css'
 
 import LogInForm from '../components/forms/login-form';
 
@@ -14,8 +15,8 @@ export function LogInPage(props) {
     // }
 
     return (
-        <div className="home">
-            <h2>Log in to Swarmer</h2>
+        <div className="form-container">
+            <h2 className="form-title">Log in to Swarmer</h2>
             <LogInForm />
             {/* <p>Don't have an account? <Link to="/signup" className="form-link">Signup</Link> is free!</p> */}
             {/* <button onClick={demoLogin} className="login-button demo">Demo</button> */}
