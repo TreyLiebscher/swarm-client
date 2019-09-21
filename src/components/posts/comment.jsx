@@ -44,7 +44,7 @@ export default class Comment extends React.Component {
 
     showReplyForm(){
         if(this.state.reply_form_visible === false){
-            this.setState({replies: false});
+            this.setState({replies: true});
             this.setState({reply_form_visible: true});
             this.setState({rater_visible: false});
         } else {
@@ -135,9 +135,12 @@ export default class Comment extends React.Component {
                     <div className="comment-control-box">
                         {raterDisplayButton()}
                         <button className="comment-reply-display-button" onClick={this.showReplyForm}>CANCEL</button>
-                        {displayRepliesButton()}
+                        <button className="comment-reply-display-button" onClick={this.showReplies}>Hide Replies</button>
                     </div>
                     <div className="comment-control-container">
+                        <ul className="comment-reply-container">
+                            {replies}
+                        </ul>
                         <CommentReplyForm comment={this.props.comment} />
                     </div>
                 </li>
