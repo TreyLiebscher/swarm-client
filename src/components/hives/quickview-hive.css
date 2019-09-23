@@ -1,6 +1,6 @@
 .quickview-hive {
     /* background: linear-gradient(#9903b1, #050c5f); */
-    background: #5c7cc7;
+    background: #659cb7;
     color: black;
     margin: 1em;
     position: relative;
@@ -17,7 +17,7 @@
     border-bottom: 2px solid white;
     display: flex;
     color: black;
-    background: #00298a;
+    background: #00537d;
     /* background: linear-gradient(#014dfe, #01096d); */
 }
 

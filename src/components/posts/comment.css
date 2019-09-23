@@ -9,12 +9,12 @@
 }
 
 .comment-reply-display-button {
-    background-color: black;
-    color: yellow;
-    border-top: 1px solid yellow;
-    border-bottom: 1px solid yellow;
-    border-right: 1px solid yellow;
-    border-left: 1px solid yellow;
+    background-color: white;
+    color: #00537d;
+    border-top: 1px solid #00537d;
+    border-bottom: 1px solid #00537d;
+    border-right: 1px solid #00537d;
+    border-left: 1px solid #00537d;
     font-size: 13px;
     margin: 0.3em;
     height: 45px;
@@ -22,12 +22,12 @@
 }
 
 .comment-reply-hide-button {
-    background-color: black;
-    color: yellow;
+    background-color: white;
+    color: #00537d;
     border-top: none;
-    border-bottom: 1px dotted white;
-    border-right: 1px solid yellow;
-    border-left: 1px solid yellow;
+    border-bottom: 1px dotted black;
+    border-right: 1px solid #00537d;
+    border-left: 1px solid #00537d;
     font-size: 16px;
     height: 45px;
     flex: 1;
@@ -46,4 +46,8 @@
 .viewpost-comment-date {
     margin: 0px;
     font-size: 11px;
+}
+
+.original {
+    color: #00537d;
 }
