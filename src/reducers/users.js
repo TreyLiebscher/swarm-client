@@ -11,11 +11,13 @@ const userState = {
     posts: [],
     ratedPosts: [],
     hives: [],
+    notifications: [],
     loading: false,
     error: null
 };
 
 export function profileReducer(state = userState, action) {
+    console.log('kiwi', action.profile)
     if (action.type === FETCH_PROFILE_SUCCESS) {
         const changedState = {
             username: action.profile.profile.username,
@@ -24,7 +26,8 @@ export function profileReducer(state = userState, action) {
             comments: action.profile.profile.comments,
             posts: action.profile.profile.posts,
             ratedPosts: action.profile.profile.ratedPosts,
-            hives: action.profile.profile.hives, 
+            hives: action.profile.profile.hives,
+            notifications: action.profile.profile.notifications, 
             loading: false, 
             error: null
         };
