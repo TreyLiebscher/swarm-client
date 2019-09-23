@@ -1,8 +1,9 @@
 .post-rater-container {
-    border: 2px solid yellow;
+    /* border: 2px solid #00537d; */
     margin-bottom: 10px;
     width: 100%;
     margin: auto;
+    background: #00537d;
 }
 
 .post-rater-button-container {
@@ -12,8 +13,8 @@
 }
 
 .post-rater-button {
-    color: yellow;
-    background-color: black;
+    color: white;
+    background-color: #00537d;
     max-width: 50px;
     max-height: 50px;
     font-size: 40px;
@@ -23,9 +24,9 @@
 }
 
 .post-rater-submit-button {
-    border: 1px solid yellow;
-    background-color: black;
-    color: yellow;
+    border: 1px solid white;
+    background-color: #00537d;
+    color: white;
     width: 50%;
     font-size: 16px;
     margin-bottom: 10px;

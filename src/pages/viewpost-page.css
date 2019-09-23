@@ -4,7 +4,7 @@
 
 .viewpost-hive-link {
     text-decoration: none;
-    color: yellow;
+    color: #00537d;
 }
 
 .viewpost-hive-link:hover {
@@ -23,23 +23,30 @@
     padding-right: 5px;
 }
 
-.viewpost-comment-author {
-    color: yellow;
-}
-
 .viewpost-comment-body {
     text-align: center;
 }
 
+.viewpost-comment-info {
+    display: flex;
+}
+
+.viewpost-comment-date {
+    margin: auto;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 14px;
+}
+
 .viewpost-more-button {
     margin-bottom: 15px;
-    background-color: black;
-    color: yellow;
-    border: 1px solid yellow;
+    background-color: #00537d;
+    color: white;
+    border: none;
     font-size: 20px;
     width: 50%;
 }
 
-.yellow {
-    color: yellow;
+.viewpost-author {
+    color: #00537d;
 }

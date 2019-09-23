@@ -23,9 +23,9 @@
 }
 
 .createComment-display-button {
-    background-color: black;
-    color: yellow;
-    border: 1px solid yellow;
+    background-color: #00537d;
+    color: white;
+    border: none;
     font-size: 16px;
     height: 30px;
     width: 75%;
@@ -37,15 +37,15 @@
     font-size: 30px;
     margin-left: 16px;
     margin-bottom: 5px;
-    background-color: black;
-    color: yellow;
-    border: 1px solid yellow;
+    background-color: #00537d;
+    color: white;
+    border: none;
 }
 
 .createComment-button {
-    background-color: black;
-    color: yellow;
-    border: 1px solid yellow;
+    background-color: #00537d;
+    color: white;
+    border: none;
     width: 50%;
     height: 40px;
 }
@@ -63,13 +63,13 @@
 
 .login-form,
 .signup-form {
-    background: #5c7cc7;
+    background: #659cb7;
     padding-top: 10px;
 }
 
 .login-button,
 .signup-button {
-    background: #00298a;
+    background: #00537d;
     color: white;
     width: 75%;
     font-size: 20px;

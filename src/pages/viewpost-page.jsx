@@ -39,7 +39,7 @@ export class ViewPostPage extends React.Component {
         const date = FormatDate(this.props.view.createdAt);
 
         const comments = this.props.comments.map((comment, index) => {
-            return <Comment key={index} comment={comment} post={post.id} user={this.props.user.id}/>
+            return <Comment key={index} comment={comment} post={post.id} postAuthor={post.author} user={this.props.user.id}/>
         });
 
         const link = () => {
@@ -69,7 +69,7 @@ export class ViewPostPage extends React.Component {
             <div className="viewpost">
                 <Link className="viewpost-hive-link" to={`/hives/view/${slugify(post.hive_title)}`}><p>&#x2b21; {post.hive_title}</p></Link>
                 <h2>{post.title}</h2>
-                <p>By: <span className="yellow">{post.author}</span></p>
+                <p>By: <span className="viewpost-author">&#x2b21; {post.author}</span></p>
                 <p className="viewpost-date">{date}</p>
                 <Ratings ratings={ratings()} length={this.props.view.ratings.length}/>
                 <br />
