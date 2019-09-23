@@ -18,7 +18,7 @@ export class CreateCommentForm extends React.Component {
     
     
     onSubmit(values) {
-        const post = this.props.post.id;
+        const post = this.props.post;
         this.props.dispatch(createComment(values, post));
         this.setState({visible: false});
     }
