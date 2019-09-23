@@ -45,16 +45,26 @@ export function NavMenu(props){
         }
     }
 
+    const notificationManager = () => {
+
+        if(props.loggedIn && props.user.notifications.length !== 0){
+            console.log('kiwi', props.user.notifications.length)
+            return <div className="navmenu-notification-count"><p className="navmenu-notification-text">{props.user.notifications.length}</p></div>            
+        }
+    }
+
     if(active === false){
         return (
             <div className="navmenu">
                 <div className="navmenu-button" onClick={() => setActive(true)}>&#x2b21;</div>
+                {notificationManager()}
             </div>
         )
     } else {
         return (
             <div className="navmenu">
                 <div className="navmenu-button" onClick={() => setActive(false)}>&#x2b21;</div>
+                    {notificationManager()}
                     {button_manager()}
             </div>
         )
