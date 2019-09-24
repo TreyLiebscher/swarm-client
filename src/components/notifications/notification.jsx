@@ -17,7 +17,23 @@ export class Notification extends React.Component {
                 }
                 return urlTitle;
             }
-            console.log(this.props.notification.comment)
+            return (
+                <div className="notification-container">
+                    <p>{this.props.notification.message} <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`}>{this.props.notification.postTitle}</Link></p>               
+                    <div>
+                        <p>{this.props.notification.comment.body}</p>
+                    </div>
+                </div>
+            )
+        }
+        else if(this.props.notification.type === 'NewReply'){
+            let urlTitle = slugify(this.props.notification.postTitle);
+            const urlTitleShorten = (urlTitle) => {
+                if(urlTitle.length >= 25){
+                    urlTitle = urlTitle.slice(0, 25);
+                }
+                return urlTitle;
+            }
             return (
                 <div className="notification-container">
                     <p>{this.props.notification.message} <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`}>{this.props.notification.postTitle}</Link></p>               

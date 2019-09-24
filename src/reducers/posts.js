@@ -66,6 +66,7 @@ const postViewState = {
     currentPage: '',
     pages: '',
     totalComments: '',
+    score: '',
     loading: false,
     error: null
 };
@@ -92,6 +93,7 @@ export function viewReducer(state = postViewState, action) {
             ratings: action.post.ratings,
             raters: action.post.raters,
             currentPage: action.post.currentPage,
+            score: action.post.score,
             pages: action.post.pages,
             totalComments: action.post.totalComments, 
             loading: false, 
@@ -121,7 +123,8 @@ export function viewReducer(state = postViewState, action) {
             ratings: action.post.ratings,
             currentPage: action.post.currentPage,
             pages: action.post.pages,
-            totalComments: action.post.totalComments, 
+            totalComments: action.post.totalComments,
+            score: action.post.score, 
             loading: false, 
             error: null
         };
