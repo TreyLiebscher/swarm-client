@@ -2,6 +2,7 @@ import React from 'react';
 import QuickViewPost from '../posts/quickview-post';
 import {Link, withRouter} from 'react-router-dom';
 import slugify from 'slugify';
+import './notifications.css';
 
 export class Notification extends React.Component {
 
@@ -19,8 +20,10 @@ export class Notification extends React.Component {
             }
             return (
                 <div className="notification-container">
-                    <p>{this.props.notification.message} <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`}>{this.props.notification.postTitle}</Link></p>               
-                    <div>
+                    <div className="notification-info">
+                        <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`} className="notification-link">{this.props.notification.message} <span className="notification-post-title">{this.props.notification.postTitle}</span></Link>
+                    </div>               
+                    <div className="notification-info content">
                         <p>{this.props.notification.comment.body}</p>
                     </div>
                 </div>
@@ -36,8 +39,10 @@ export class Notification extends React.Component {
             }
             return (
                 <div className="notification-container">
-                    <p>{this.props.notification.message} <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`}>{this.props.notification.postTitle}</Link></p>               
-                    <div>
+                    <div className="notification-info">
+                        <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`} className="notification-link">{this.props.notification.message} <span className="notification-post-title">{this.props.notification.postTitle}</span></Link>               
+                    </div>
+                    <div className="notification-info content">
                         <p>{this.props.notification.comment.body}</p>
                     </div>
                 </div>
