@@ -30,7 +30,7 @@ export class ProfileHomePage extends React.Component {
                     <ProfileViewHive hives={this.props.user.hives}/>
                     <ProfileViewPost posts={this.props.user.posts}/>
                 </div>
-                <div>
+                <div className="profilehome-page-notifications-container">
                     {notifications}    
                 </div>    
             </div>

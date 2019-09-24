@@ -1,0 +1,38 @@
+.notification-container {
+    text-align: left;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.notification-info p {
+    margin: 0;
+}
+
+.notification-info {
+    background: #00537d;
+    height: 50%;
+    color: white;
+    height: 40px;
+    max-height: 100px;
+    padding: 5px;
+}
+
+.content {
+    background: lightblue;
+    color: black;
+    height: auto;
+}
+
+.notification-link {
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.notification-post-title {
+    text-decoration: underline;
+}
