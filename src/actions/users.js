@@ -54,3 +54,37 @@ export const getProfile = user => (dispatch, getState) => {
             dispatch(fetchProfileError(err));
         });
 };
+
+export const CLEAR_NOTIFICATION_SUCCESS = 'CLEAR_NOTIFICATION_SUCCESS';
+export const clearNotificationSuccess = (profile) => ({
+    type: CLEAR_NOTIFICATION_SUCCESS,
+    profile
+});
+
+export const CLEAR_NOTIFICATION_ERROR = 'CLEAR_NOTIFICATION_ERROR';
+export const clearNotificationError = error => ({
+    type: CLEAR_NOTIFICATION_ERROR,
+    error
+});
+
+export const clearNotification = (user, notification) => (dispatch, getState) => {
+    const AUTH_TOKEN = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}users/clear-notification`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${AUTH_TOKEN}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: user,
+            notification: notification
+        })
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then((profile) => dispatch(clearNotificationSuccess(profile)))
+    .catch(err => {
+        dispatch(clearNotificationError(err));
+    });
+} 

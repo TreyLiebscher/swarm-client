@@ -1,12 +1,21 @@
 import React from 'react';
-import QuickViewPost from '../posts/quickview-post';
+import { connect } from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
+import {clearNotification} from '../../actions/users'
 import slugify from 'slugify';
 import './notifications.css';
 
 export class Notification extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.handleClearNotification = this.handleClearNotification.bind(this);
+    }
 
+    handleClearNotification(){
+        console.log(this.props.notification)
+        this.props.dispatch(clearNotification(this.props.user, this.props.notification))
+    }
 
 
     render(){
@@ -20,9 +29,11 @@ export class Notification extends React.Component {
             }
             return (
                 <div className="notification-container">
-                    <div className="notification-info">
-                        <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`} className="notification-link">{this.props.notification.message} <span className="notification-post-title">{this.props.notification.postTitle}</span></Link>
-                    </div>               
+                    <button className="notification-clear-button" onClick={this.handleClearNotification}>
+                        <div className="notification-info">
+                            <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`} className="notification-link">{this.props.notification.message} <span className="notification-post-title">{this.props.notification.postTitle}</span></Link>
+                        </div>
+                    </button>               
                     <div className="notification-info content">
                         <p>{this.props.notification.comment.body}</p>
                     </div>
@@ -39,16 +50,25 @@ export class Notification extends React.Component {
             }
             return (
                 <div className="notification-container">
-                    <div className="notification-info">
-                        <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`} className="notification-link">{this.props.notification.message} <span className="notification-post-title">{this.props.notification.postTitle}</span></Link>               
-                    </div>
+                    <button className="notification-clear-button" onClick={this.handleClearNotification}>
+                        <div className="notification-info">
+                            <Link to={`/posts/view/${this.props.notification.post}/${urlTitleShorten(urlTitle)}`} className="notification-link">{this.props.notification.message} <span className="notification-post-title">{this.props.notification.postTitle}</span></Link>               
+                        </div>
+                    </button>
                     <div className="notification-info content">
                         <p>{this.props.notification.comment.body}</p>
                     </div>
+                    <button onClick={this.handleClearNotification}>clear</button>
                 </div>
             )
         }    
     }
 }
 
-export default withRouter(Notification);
+const mapStateToProps = state => {
+    return {
+        user: state.userProfile
+    };
+};
+
+export default connect(mapStateToProps)(withRouter(Notification));

@@ -36,3 +36,11 @@
 .notification-post-title {
     text-decoration: underline;
 }
+
+.notification-clear-button {
+    width: 100%;
+    padding: 0px;
+    border: none;
+    font: inherit;
+    text-align: left;
+}
