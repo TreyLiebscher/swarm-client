@@ -27,7 +27,7 @@ export class CommentRater extends React.Component {
             rateComment({
                 rating: this.state.rating,
                 comment: this.props.comment,
-                post: this.props.post
+                post: this.props.post.id
             })
         )
         this.setState({submitted: true})

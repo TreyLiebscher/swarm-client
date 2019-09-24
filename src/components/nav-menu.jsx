@@ -48,7 +48,6 @@ export function NavMenu(props){
     const notificationManager = () => {
 
         if(props.loggedIn && props.user.notifications.length !== 0){
-            console.log('kiwi', props.user.notifications.length)
             return <div className="navmenu-notification-count"><p className="navmenu-notification-text">{props.user.notifications.length}</p></div>            
         }
     }
