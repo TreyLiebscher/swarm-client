@@ -156,7 +156,7 @@ export default class Comment extends React.Component {
                         <ul className="comment-reply-container">
                             {replies}
                         </ul>
-                        <CommentReplyForm comment={this.props.comment} />
+                        <CommentReplyForm comment={this.props.comment} post={this.props.post}/>
                     </div>
                 </li>
             )

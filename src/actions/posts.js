@@ -11,7 +11,8 @@ const standardQuickViewPost = post => ({
     image: post.image,
     comments: post.comments,
     tags: post.tags,
-    createdAt: post.createdAt
+    createdAt: post.createdAt,
+    score: post.score
 });
 
 const standardViewPost = post => ({
@@ -29,7 +30,8 @@ const standardViewPost = post => ({
     raters: post.feedback.raters,
     currentPage: post.currentPage,
     pages: post.pages,
-    totalComments: post.totalComments
+    totalComments: post.totalComments,
+    score: post.feedback.score
 });
 
 // GET - GENERAL BROWSING \\

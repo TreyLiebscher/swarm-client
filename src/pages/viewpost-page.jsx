@@ -39,7 +39,7 @@ export class ViewPostPage extends React.Component {
         const date = FormatDate(this.props.view.createdAt);
 
         const comments = this.props.comments.map((comment, index) => {
-            return <Comment key={index} comment={comment} post={post.id} postAuthor={post.author} user={this.props.user.id}/>
+            return <Comment key={index} comment={comment} post={post} postAuthor={post.author} user={this.props.user.id}/>
         });
 
         const link = () => {
