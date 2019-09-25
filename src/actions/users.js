@@ -55,6 +55,21 @@ export const getProfile = user => (dispatch, getState) => {
         });
 };
 
+// GET - Public Profile \\
+export const getPublicProfile = user => dispatch => {
+    
+    return fetch(`${API_BASE_URL}users/${user}`, {
+        method: 'GET'
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then((profile) => dispatch(fetchProfileSuccess(profile)))
+        .catch(err => {
+            dispatch(fetchProfileError(err));
+        });
+};
+// ---------------------- \\
+
 export const CLEAR_NOTIFICATION_SUCCESS = 'CLEAR_NOTIFICATION_SUCCESS';
 export const clearNotificationSuccess = (profile) => ({
     type: CLEAR_NOTIFICATION_SUCCESS,
@@ -87,4 +102,49 @@ export const clearNotification = (user, notification) => (dispatch, getState) =>
     .catch(err => {
         dispatch(clearNotificationError(err));
     });
-} 
+}
+// ---------------------- \\
+
+// POST - Send a message \\
+export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
+export const sendMessageSuccess = (profile) => ({
+    type: SEND_MESSAGE_SUCCESS,
+    profile
+});
+
+export const SEND_MESSAGE_ERROR = 'SEND_MESSAGE_ERROR';
+export const sendMessageError = error => ({
+    type: SEND_MESSAGE_ERROR,
+    error
+});
+
+export const sendMessage = (sender, receiver, body, conversation) => (dispatch, getState) => {
+    let record;
+    if(!(conversation)){
+        record = null;
+    } else {
+        record = conversation;
+    }
+
+    return fetch(`${API_BASE_URL}users/send`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            users: [sender, receiver],
+            sender: sender,
+            receiver: receiver,
+            body: body.body,
+            conversation: record
+        })
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then((profile) => dispatch(sendMessageSuccess(profile)))
+    .catch(err => {
+        dispatch(sendMessageError(err));
+    });
+}
+// ---------------------- \\
