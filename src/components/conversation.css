@@ -1,0 +1,15 @@
+.user-message {
+    background: #659cb7;
+    width: 50%;
+    margin-left: 50%;
+}
+
+.receiver-message {
+    background: #b5b1b1;
+    width: 50%;
+}
+
+.conversation-people {
+    background-color: #00537d;
+    color: white;
+}
