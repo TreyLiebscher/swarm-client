@@ -23,7 +23,7 @@ export class ViewPostPage extends React.Component {
     componentDidMount(){
         window.scrollTo(0, 0);
         this.props.dispatch(viewPostById(this.props.match.params.id))
-        .then(res => this.props.dispatch(getProfile()))
+        // .then(res => this.props.dispatch(getProfile()))
     }
 
     nextComments(){
