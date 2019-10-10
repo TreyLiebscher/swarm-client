@@ -55,26 +55,7 @@ export class ProfileHomePage extends React.Component {
 
         const conversations = this.props.user.conversations.map((convo, index) => {
             return <Conversation messages={convo.messages} users={convo.users} key={index} convoId={convo._id} user={this.props.user.id}/>
-            // const messages = convo.messages.map((message, index) => {
-            //    return <p>{message.body}</p>
-            // });
-
-            // const users = convo.users.map((user) => {
-            //     if(user._id === this.props.user.id){
-            //         return <p>You</p>
-            //     } else {
-            //         return <p>{user.username}</p>
-            //     }
-            // })
-
-            // return (
-            //     <li key={index}>
-            //         <p>Conversation with</p>
-            //         {users}
-            //         {messages}
-            //     </li>
-            // )
-        })
+        });
 
         if(this.state.main === true){
             return (
