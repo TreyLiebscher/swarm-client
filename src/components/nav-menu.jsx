@@ -72,7 +72,7 @@ export function NavMenu(props){
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
-    user: state.auth.currentUser
+    user: state.userProfile
 });
 
 export default withRouter(connect(mapStateToProps)(NavMenu));
