@@ -22,7 +22,6 @@ const userState = {
 };
 
 export function profileReducer(state = userState, action) {
-    console.log(action)
     if (action.type === FETCH_PROFILE_SUCCESS) {
         const changedState = {
             username: action.profile.profile.username,
