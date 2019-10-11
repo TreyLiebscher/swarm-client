@@ -81,8 +81,10 @@ export const clearNotificationError = error => ({
     type: CLEAR_NOTIFICATION_ERROR,
     error
 });
-
-export const clearNotification = (user, notification) => (dispatch, getState) => {
+// TODO: For some reason, the clearNotificationSuccess action is not being
+// received by reducer properly. For now, this simply calls the fetchProfileSuccess
+// action
+export const clearNotification = (values) => (dispatch, getState) => {
     const AUTH_TOKEN = getState().auth.authToken;
     return fetch(`${API_BASE_URL}users/clear-notification`, {
         method: 'POST',
@@ -92,13 +94,12 @@ export const clearNotification = (user, notification) => (dispatch, getState) =>
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: user,
-            notification: notification
+            user: values.user,
+            notification: values.notification
         })
     })
-    .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then((profile) => dispatch(clearNotificationSuccess(profile)))
+    .then((profile) => dispatch(fetchProfileSuccess(profile)))
     .catch(err => {
         dispatch(clearNotificationError(err));
     });
@@ -142,7 +143,7 @@ export const sendMessage = (sender, receiver, body, conversation) => (dispatch, 
     })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then((profile) => dispatch(sendMessageSuccess(profile)))
+    .then((profile) => dispatch(fetchProfileSuccess(profile)))
     .catch(err => {
         dispatch(sendMessageError(err));
     });

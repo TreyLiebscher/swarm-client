@@ -49,7 +49,7 @@ export class ProfileHomePage extends React.Component {
 
         const notifications = this.props.user.notifications.map((notification, index) => {
             return (
-                <Notification notification={notification} key={index} user={this.props.user.id}/>
+                <Notification notification={notification} key={index}/>
             )
         });
 

@@ -45,7 +45,6 @@ export function profileReducer(state = userState, action) {
         return newState;
     }
     else if(action.type === SEND_MESSAGE_SUCCESS){
-        console.log('kiwi', action.profile)
         const changedState = {
             username: action.profile.profile.username,
             email: action.profile.profile.email,

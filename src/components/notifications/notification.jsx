@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {clearNotification} from '../../actions/users'
 import slugify from 'slugify';
 import './notifications.css';
@@ -13,8 +13,7 @@ export class Notification extends React.Component {
     }
 
     handleClearNotification(){
-        console.log(this.props.notification)
-        this.props.dispatch(clearNotification(this.props.user, this.props.notification))
+        this.props.dispatch(clearNotification({user: this.props.user, notification: this.props.notification}))
     }
 
 
@@ -71,4 +70,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(withRouter(Notification));
+export default connect(mapStateToProps)(Notification);
