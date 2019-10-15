@@ -1,0 +1,50 @@
+.conversation-page {
+    width: 100%;
+}
+
+.receiver-nameplate {
+    position: fixed;
+    border-bottom: 2px solid black;
+    height: 50px;
+    border-top: 2px solid white;
+    width: 100%;
+    line-height: 50px;
+    background: #00537de0;
+}
+
+.receiver-name {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+}
+
+.message-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+.message-sender {
+    background: #00537d;
+    margin-left: auto;
+    color: white;
+}
+
+.message-receiver {
+    background: gray;
+    margin-right: auto;
+}
+
+.message-sender,
+.message-receiver {
+    width: 50%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.message-body {
+    font-size: 18px;
+    margin: 0;
+    padding: 10px;
+}
