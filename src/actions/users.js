@@ -106,9 +106,9 @@ export const clearNotification = (values) => (dispatch, getState) => {
 
 // POST - Send a message \\
 export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
-export const sendMessageSuccess = (profile) => ({
+export const sendMessageSuccess = (conversation) => ({
     type: SEND_MESSAGE_SUCCESS,
-    profile
+    conversation
 });
 
 export const SEND_MESSAGE_ERROR = 'SEND_MESSAGE_ERROR';
@@ -147,3 +147,38 @@ export const sendMessage = (sender, receiver, body, conversation) => (dispatch, 
     });
 }
 // ---------------------- \\
+
+// POST - Get Conversation \\
+
+export const GET_CONVERSATION_SUCCESS = 'GET_CONVERSATION_SUCCESS';
+export const getConversationSuccess = (conversation) => ({
+    type: GET_CONVERSATION_SUCCESS,
+    conversation
+});
+
+export const GET_CONVERSATION_ERROR = 'GET_CONVERSATION_ERROR';
+export const getConversationError = error => ({
+    type: GET_CONVERSATION_ERROR,
+    error
+});
+
+export const getConversation = (id) => (dispatch, getState) => {
+    const AUTH_TOKEN = getState().auth.authToken;
+    console.log('fired kiwi')
+    return fetch(`${API_BASE_URL}users/conversation/${id}`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${AUTH_TOKEN}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            conversation: id
+        })
+    })
+    .then(res => res.json())
+    .then((conversation) => dispatch(getConversationSuccess(conversation)))
+    .catch(err => {
+        dispatch(getConversationError(err));
+    });
+}
