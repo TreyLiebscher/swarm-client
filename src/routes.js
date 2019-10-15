@@ -12,6 +12,7 @@ import ProfileHomePage from './pages/profilehome-page';
 import PublicProfilePage from './pages/publicprofile-page';
 import BuildHivePage from './pages/buildhive-page';
 import CreatePostPage from './pages/createpost-page';
+import ConversationPage from './pages/conversation-page';
 
 export default (
   <Switch>
@@ -22,6 +23,7 @@ export default (
     <Route path="/users/profile/home" component={ProfileHomePage} />
     <Route path="/users/:user" component={PublicProfilePage} />
     <Route path="/posts/create/:id" component={CreatePostPage} />
+    <Route path="/messages/:id" component={ConversationPage} />
     <Route exact path="/signup" component={SignupPage} />
     <Route exact path="/login" component={LogInPage} />
     <Route path="*" component={NotFoundPage} />

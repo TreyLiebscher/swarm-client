@@ -53,15 +53,15 @@ export function profileReducer(state = userState, action) {
         const newState = {...state, ...changedState};
         return newState;
     } 
-    else if(action.type === SEND_MESSAGE_SUCCESS){
-        const changedState = {
-            conversations: action.profile.profile.conversations, 
-            loading: false, 
-            error: null
-        };
-        const newState = {...state, ...changedState};
-        return newState;
-    } 
+    // else if(action.type === SEND_MESSAGE_SUCCESS){
+    //     const changedState = {
+    //         conversations: action.profile.profile.conversations, 
+    //         loading: false, 
+    //         error: null
+    //     };
+    //     const newState = {...state, ...changedState};
+    //     return newState;
+    // } 
     else if(action.type === CLEAR_NOTIFICATION_ERROR){
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};

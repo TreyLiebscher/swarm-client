@@ -12,7 +12,7 @@ export function NavMenu(props){
         props.dispatch(clearAuth());
         clearAuthToken();
         setActive(false);
-        // <Redirect to="/" />
+        props.history.push('/')
     }
 
 
