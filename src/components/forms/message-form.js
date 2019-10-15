@@ -23,10 +23,9 @@ export class SendMessageForm extends React.Component {
             this.props.dispatch(sendMessage(this.props.sender.id, this.props.receiver, values));
             this.setState({visible: false});
             this.setState({submitted: true});
-            this.props.history.push('/users/profile/home')
         }
         else {
-            this.props.dispatch(sendMessage(this.props.sender, this.props.receiver, values, this.props.conversation));
+            this.props.dispatch(sendMessage(this.props.sender.id, this.props.receiver, values, this.props.conversation));
         }
     }
 
