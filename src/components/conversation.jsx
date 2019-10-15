@@ -1,9 +1,10 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router-dom';
 import SendMessageForm from '../components/forms/message-form';
 import {connect} from 'react-redux';
 import './conversation.css'
 
-export default class Conversation extends React.Component {
+export class Conversation extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -21,50 +22,66 @@ export default class Conversation extends React.Component {
         }
     }
 
-
-
     render(){
-        const messages = this.props.messages.map((message, index) => {
-            if(message.user === this.props.user){
-                return <p className="user-message" key={index}>{message.body}</p>
-            } else {
-                return <p className="receiver-message" key={index}>{message.body}</p>
-            }
 
-        });
         let receiver;
-        const users = this.props.users.map((user, index) => {
-            if(user._id === this.props.user){
-                return;
-            } else {
-                receiver = user._id
-                return <p key={index}>{user.username}</p>
+        const findReceiver = this.props.users.map((user) => {
+            if(user._id !== this.props.user){
+                receiver = user.username;
             }
-        })
+        });
 
-        if(this.state.visible === true){
-            return (
-                <div className="conversation-container">
-                    <div className="conversation-people" onClick={this.displayMessages}>
-                        {users}
-                    </div>
-                    {messages}
-                    <SendMessageForm 
-                        sender={this.props.user}
-                        receiver={receiver}
-                        conversation={this.props.convoId}
-                    />
-                </div>
-            )            
-        }
-        else {
-            return (
-                <div className="conversation-container">
-                    <div className="conversation-people" onClick={this.displayMessages}>
-                        {users}
-                    </div>
-                </div>
-            )
-        }
+        return (
+            <Link to={`/messages/${this.props.convoId}`}>{receiver}</Link>
+        )
     }
+
+
+
+    // render(){
+    //     const messages = this.props.messages.map((message, index) => {
+    //         if(message.user === this.props.user){
+    //             return <p className="user-message" key={index}>{message.body}</p>
+    //         } else {
+    //             return <p className="receiver-message" key={index}>{message.body}</p>
+    //         }
+
+    //     });
+    //     let receiver;
+    //     const users = this.props.users.map((user, index) => {
+    //         if(user._id === this.props.user){
+    //             return;
+    //         } else {
+    //             receiver = user._id
+    //             return <p key={index}>{user.username}</p>
+    //         }
+    //     })
+
+    //     if(this.state.visible === true){
+    //         return (
+    //             <div className="conversation-container">
+    //                 <div className="conversation-people" onClick={this.displayMessages}>
+    //                     {users}
+    //                 </div>
+    //                 {messages}
+    //                 <SendMessageForm 
+    //                     sender={this.props.user}
+    //                     receiver={receiver}
+    //                     conversation={this.props.convoId}
+    //                 />
+    //             </div>
+    //         )            
+    //     }
+    //     else {
+    //         return (
+    //             <div className="conversation-container">
+    //                 <div className="conversation-people" onClick={this.displayMessages}>
+    //                     {users}
+    //                 </div>
+    //             </div>
+    //         )
+    //     }
+    // }
 }
+
+export default withRouter(Conversation);
