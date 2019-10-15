@@ -6,6 +6,7 @@ import authReducer from './reducers/auth';
 import {browseReducer, viewReducer, createPostReducer} from './reducers/posts';
 import {hiveBrowse, hiveView, hiveBuild} from './reducers/hives';
 import {profileReducer} from './reducers/users';
+import {conversationReducer} from './reducers/conversation';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
@@ -18,7 +19,8 @@ const store = createStore(
         posts: browseReducer,
         post: viewReducer,
         createPost: createPostReducer,
-        userProfile: profileReducer
+        userProfile: profileReducer,
+        conversation: conversationReducer
     }),
     applyMiddleware(thunk)
 );
