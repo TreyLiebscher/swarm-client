@@ -41,13 +41,13 @@ export class ProfileViewPost extends React.Component {
         if(this.state.visible === false){
             return (
                 <div className="profile-view-post-container" onClick={this.displayPosts}>
-                    <p className="profile-view-post-label">POSTS</p>
+                    <p className="profile-view-post-label">POSTS ▼</p>
                 </div>
             )
         } else {
             return (
                 <div className="profile-view-post-container" onClick={this.displayPosts}>
-                    <p className="profile-view-post-label visible">POSTS</p>
+                    <p className="profile-view-post-label">POSTS ▲</p>
                     {posts}
                 </div>
             )

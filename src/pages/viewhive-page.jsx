@@ -71,7 +71,7 @@ export class ViewHivePage extends React.Component {
                     </div>
                     <div className="viewhive-page-info-container-row">
                         <p className="viewhive-page-mission-label">FOUNDER</p>
-                        <p>{hive.founder}</p>                    
+                        <Link className="viewhive-page-link" to={`/users/${hive.founder}`}><p>⬡ {hive.founder}</p></Link>                    
                     </div>
 
                     {joinButton()}

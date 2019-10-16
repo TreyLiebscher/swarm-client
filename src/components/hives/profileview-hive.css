@@ -1,16 +1,20 @@
 .profile-view-hive-container {
-    border-top: 2px solid yellow;
-    border-bottom: 2px solid yellow;
+    /* background: #00537d;
+    color: white; */
     width: 100%;
     margin-bottom: 20px;
 }
 
 .profile-view-hive-label {
+    background: #00537d;
+    color: white;
     height: 40px;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
+    line-height: 40px;
 }
 
 
@@ -19,5 +23,5 @@
 }
 
 .visible {
-    border-bottom: 2px dotted yellow;
+    border-bottom: 2px dotted black;
 }

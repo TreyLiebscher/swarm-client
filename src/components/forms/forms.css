@@ -14,13 +14,13 @@
     width: 90%;
 }
 
-.createPost-button {
+/* .createPost-button {
     background-color: black;
     color: yellow;
     border: 2px solid yellow;
     margin-top: 15px;
     font-size: 20px;
-}
+} */
 
 .createComment-display-button {
     background-color: #00537d;
@@ -62,13 +62,17 @@
 }
 
 .login-form,
-.signup-form {
+.signup-form,
+.buildHive,
+.createPost {
     background: #659cb7;
     padding-top: 10px;
 }
 
 .login-button,
-.signup-button {
+.signup-button,
+.buildHive-button,
+.createPost-button {
     background: #00537d;
     color: white;
     width: 75%;
