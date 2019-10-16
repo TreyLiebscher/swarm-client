@@ -60,6 +60,18 @@ export class Notification extends React.Component {
                     <button onClick={this.handleClearNotification}>clear</button>
                 </div>
             )
+        }
+        else if(this.props.notification.type === 'NewMessage'){
+            return (
+                <div className="notification-container">
+                    <button className="notification-clear-button" onClick={this.handleClearNotification}>
+                        <div className="notification-info">
+                            <Link to={`/messages/${this.props.notification.post}`} className="notification-link">{this.props.notification.message}</Link>               
+                        </div>
+                    </button>
+                    <button onClick={this.handleClearNotification}>clear</button>
+                </div>
+            )
         }    
     }
 }
