@@ -35,13 +35,13 @@ export class ProfileViewHive extends React.Component {
         if(this.state.visible === false){
             return (
                 <div className="profile-view-hive-container" onClick={this.displayHives}>
-                    <p className="profile-view-hive-label">HIVES</p>
+                    <p className="profile-view-hive-label">HIVES ▼</p>
                 </div>
             )
         } else {
             return (
                 <div className="profile-view-hive-container" onClick={this.displayHives}>
-                    <p className="profile-view-hive-label visible">HIVES</p>
+                    <p className="profile-view-hive-label">HIVES ▲</p>
                     {hives}
                 </div>
             )

@@ -14,6 +14,7 @@ export class ProfileHomePage extends React.Component {
         this.viewMain = this.viewMain.bind(this);
         this.viewMessages = this.viewMessages.bind(this);
         this.viewNotifications = this.viewNotifications.bind(this);
+        this.scrollTop = this.scrollTop.bind(this);
         this.state = {
             main: true,
             messages: false,
@@ -25,6 +26,10 @@ export class ProfileHomePage extends React.Component {
 
     componentDidMount() {
         this.props.dispatch(getProfile());
+    }
+
+    scrollTop(){
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
 
     viewMain(){
@@ -60,39 +65,61 @@ export class ProfileHomePage extends React.Component {
         if(this.state.main === true){
             return (
                 <div className="profileHome-page">
-                    <button onClick={this.viewMain}>Main</button>
-                    <button onClick={this.viewMessages}>Messages</button>
-                    <button onClick={this.viewNotifications}>Notifications</button>
-                    <p>Wecome back {this.props.user.username}</p>
-                    <p>{this.props.user.notifications.length}</p>
-                    <Link to="/hives/build">Build a Hive!</Link>
+                    <div className="profileHome-control-box">
+                        <button className="profileHome-control" onClick={this.viewMain}>Main</button>
+                        <button className="profileHome-control middle" onClick={this.viewMessages}>Messages</button>
+                        <button className="profileHome-control" onClick={this.viewNotifications}>Notifications ({this.props.user.notifications.length})</button>
+                    </div>
+                    <div className="profileHome-userInfo-container">
+                        <p className="profileHome-userInfo-name">⬡ {this.props.user.username}</p>
+                    </div>
+                    <div className="profileHome-link-container">
+                        <Link to="/hives/build" className="profileHome-link">
+                            <div className="profileHome-link-content">
+                                + Hive
+                            </div>
+                        </Link>
+                    </div>
                     <div className="profilehome-content-box">
                         <ProfileViewHive hives={this.props.user.hives}/>
                         <ProfileViewPost posts={this.props.user.posts}/>
+                    </div>
+                    <div className="profileHome-pageTop-button" onClick={this.scrollTop}>
+                        <div>▲</div>
                     </div>    
                 </div>
             )
         } else if(this.state.messages === true){
             return (
                 <div className="profileHome-page">
-                    <button onClick={this.viewMain}>Main</button>
-                    <button onClick={this.viewMessages}>Messages</button>
-                    <button onClick={this.viewNotifications}>Notifications</button>
+                    <div className="profileHome-control-box">
+                        <button className="profileHome-control" onClick={this.viewMain}>Main</button>
+                        <button className="profileHome-control middle" onClick={this.viewMessages}>Messages</button>
+                        <button className="profileHome-control" onClick={this.viewNotifications}>Notifications ({this.props.user.notifications.length})</button>
+                    </div>
                     <p>MESSAGES</p>
                     <div className="conversations-container">
                         {conversations}
+                    </div>
+                    <div className="profileHome-pageTop-button" onClick={this.scrollTop}>
+                        <div>▲</div>
                     </div>
                 </div>
             )
         } else if(this.state.notifications === true){
             return (
                 <div className="profileHome-page">
-                    <button onClick={this.viewMain}>Main</button>
-                    <button onClick={this.viewMessages}>Messages</button>
-                    <button onClick={this.viewNotifications}>Notifications</button>
+                    <div className="profileHome-control-box">
+                        <button className="profileHome-control" onClick={this.viewMain}>Main</button>
+                        <button className="profileHome-control middle" onClick={this.viewMessages}>Messages</button>
+                        <button className="profileHome-control" onClick={this.viewNotifications}>Notifications ({this.props.user.notifications.length})</button>
+                    </div>
                     <p>NOTIFICATIONS</p>
                     <div className="profilehome-page-notifications-container">
                         {notifications}    
+                    </div>
+                    <div className="profileHome-pageTop-button" onClick={this.scrollTop}>
+                        <div>▲</div>
                     </div>
                 </div>
             )
