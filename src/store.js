@@ -7,6 +7,7 @@ import {browseReducer, viewReducer, createPostReducer} from './reducers/posts';
 import {hiveBrowse, hiveView, hiveBuild} from './reducers/hives';
 import {profileReducer} from './reducers/users';
 import {conversationReducer} from './reducers/conversation';
+import {commentReducer} from './reducers/comments';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
@@ -18,6 +19,7 @@ const store = createStore(
         buildHive: hiveBuild, 
         posts: browseReducer,
         post: viewReducer,
+        comment: commentReducer,
         createPost: createPostReducer,
         userProfile: profileReducer,
         conversation: conversationReducer

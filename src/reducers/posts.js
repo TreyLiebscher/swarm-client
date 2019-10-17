@@ -161,21 +161,7 @@ export function viewReducer(state = postViewState, action) {
         const newState = {...state, ...changedState};
         return newState;
     }
-    else if (action.type === COMMENT_REPLY_SUCCESS) {
-        const changedState = {
-            comments: action.comment.feedback.comments,
-            loading: false, 
-            error: null
-        };
-        const newState = {...state, ...changedState};
-        return newState;
-    }
     else if (action.type === CREATE_COMMENT_ERROR) {
-        const changedState = {loading: false, error: action.error};
-        const newState = {...state, ...changedState};
-        return newState;
-    }
-    else if (action.type === COMMENT_REPLY_ERROR) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
