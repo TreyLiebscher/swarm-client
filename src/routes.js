@@ -13,11 +13,13 @@ import PublicProfilePage from './pages/publicprofile-page';
 import BuildHivePage from './pages/buildhive-page';
 import CreatePostPage from './pages/createpost-page';
 import ConversationPage from './pages/conversation-page';
+import ViewCommentPage from './pages/viewcomment-page';
 
 export default (
   <Switch>
     <Route exact path="/" component={HomePage} />
     <Route path="/posts/view/:id" component={ViewPostPage} />
+    <Route path="/posts/comments/:id" component={ViewCommentPage} />
     <Route path="/hives/view/:title" component={ViewHivePage} />
     <Route path="/hives/build" component={BuildHivePage} />
     <Route path="/users/profile/home" component={ProfileHomePage} />
