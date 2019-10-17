@@ -1,11 +1,11 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {withRouter} from 'react-router-dom';
-import AreaInput from './area-input';
+import {BorderedAreaInput} from './area-input';
 import {required, nonEmpty} from '../../helpers/validators';
 import './forms.css';
 
-import {sendMessage, getProfile} from '../../actions/users';
+import {sendMessage} from '../../actions/users';
 
 export class SendMessageForm extends React.Component {
     constructor(props){
@@ -53,7 +53,7 @@ export class SendMessageForm extends React.Component {
                     <button type="button" className="createComment-cancel" onClick={this.displayForm}>X</button>
                     <label htmlFor="body">Send a message</label>
                     <Field
-                        component={AreaInput}
+                        component={BorderedAreaInput}
                         type="text"
                         name="body"
                         validate={[required, nonEmpty]}

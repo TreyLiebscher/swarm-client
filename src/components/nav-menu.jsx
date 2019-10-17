@@ -37,14 +37,6 @@ export function NavMenu(props){
         }
     }
 
-    const name_manager = () => {
-        if(props.loggedIn){
-            return `${props.user.username}`
-        } else {
-            return 'Menu'
-        }
-    }
-
     const notificationManager = () => {
 
         if(props.loggedIn && props.user.notifications.length !== 0){

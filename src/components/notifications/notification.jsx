@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {clearNotification} from '../../actions/users'
-import slugify from 'slugify';
+import {clearNotification} from '../../actions/users';
 import './notifications.css';
 
 export class Notification extends React.Component {
