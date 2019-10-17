@@ -35,11 +35,6 @@ export class CommentReplyForm extends React.Component {
 
     render(){
 
-
-        // if(this.state.submitted === true){
-        //     TODO *Close comment form/display comment form/etc*
-        // }
-
         if(this.state.visible === false){
             return (
                 <div></div>
@@ -52,7 +47,6 @@ export class CommentReplyForm extends React.Component {
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
-                    {/* <button type="button" className="commentReply-cancel" onClick={this.displayForm}>X</button> */}
                     <label htmlFor="body">Reply</label>
                     <Field
                         component={AreaInput}
