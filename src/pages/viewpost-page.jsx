@@ -23,7 +23,7 @@ export class ViewPostPage extends React.Component {
     componentDidMount(){
         window.scrollTo(0, 0);
         this.props.dispatch(viewPostById(this.props.match.params.id))
-        // .then(res => this.props.dispatch(getProfile()))
+        .then(res => this.props.dispatch(getProfile()))
     }
 
     nextComments(){
@@ -39,7 +39,7 @@ export class ViewPostPage extends React.Component {
         const date = FormatDate(this.props.view.createdAt);
 
         const comments = this.props.comments.map((comment, index) => {
-            return <Comment key={index} comment={comment} post={post} postAuthor={post.author} user={this.props.user.id}/>
+            return <Comment key={index} comment={comment} post={post} postAuthor={post.author} user={this.props.auth.id}/>
         });
 
         const link = () => {
@@ -88,8 +88,8 @@ const mapStateToProps = state => {
     return {
         view: state.post,
         comments: state.post.comments,
-        user: state.userProfile
-
+        user: state.userProfile,
+        auth: state.auth.currentUser
     };
 };
 
