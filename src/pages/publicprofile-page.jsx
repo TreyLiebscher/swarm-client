@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {getPublicProfile} from '../actions/users';
 import ProfileViewHive from '../components/hives/profileview-hive';
 import ProfileViewPost from '../components/posts/profileview-post';

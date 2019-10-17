@@ -2,9 +2,7 @@ import {
     FETCH_PROFILE_SUCCESS,
     FETCH_PROFILE_ERROR,
     CLEAR_NOTIFICATION_SUCCESS,
-    CLEAR_NOTIFICATION_ERROR,    
-    SEND_MESSAGE_SUCCESS,
-    SEND_MESSAGE_ERROR
+    CLEAR_NOTIFICATION_ERROR
 } from '../actions/users';
 
 const userState = {
@@ -52,16 +50,7 @@ export function profileReducer(state = userState, action) {
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};
         return newState;
-    } 
-    // else if(action.type === SEND_MESSAGE_SUCCESS){
-    //     const changedState = {
-    //         conversations: action.profile.profile.conversations, 
-    //         loading: false, 
-    //         error: null
-    //     };
-    //     const newState = {...state, ...changedState};
-    //     return newState;
-    // } 
+    }
     else if(action.type === CLEAR_NOTIFICATION_ERROR){
         const changedState = {loading: false, error: action.error};
         const newState = {...state, ...changedState};

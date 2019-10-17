@@ -6,3 +6,12 @@
     border-radius: 5px;
     border: none;
 }
+
+.bordered-area-input {
+    font-size: 16px;
+    height: 50px;
+    margin-top: 0;
+    width: 90%;
+    border-radius: 5px;
+    border: 2px solid #00537d;
+}

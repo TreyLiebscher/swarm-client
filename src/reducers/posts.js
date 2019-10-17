@@ -17,8 +17,6 @@ import {
 import {
     CREATE_COMMENT_SUCCESS,
     CREATE_COMMENT_ERROR,
-    COMMENT_REPLY_SUCCESS,
-    COMMENT_REPLY_ERROR,
     RATE_COMMENT_SUCCESS,
     RATE_COMMENT_ERROR
 } from '../actions/comments';

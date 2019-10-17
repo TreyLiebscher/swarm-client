@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import AreaInput from './area-input';
+import {BorderedAreaInput} from './area-input';
 import {required, nonEmpty} from '../../helpers/validators';
 import './forms.css';
 
@@ -49,7 +49,7 @@ export class CommentReplyForm extends React.Component {
                     )}>
                     <label htmlFor="body">Reply</label>
                     <Field
-                        component={AreaInput}
+                        component={BorderedAreaInput}
                         type="text"
                         name="body"
                         validate={[required, nonEmpty]}

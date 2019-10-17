@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {viewComment} from '../actions/comments';
-import Comment from '../components/posts/comment';
 import SingleComment from '../components/comments/single-comment';
+import './viewcomment-page.css';
 
 export class ViewCommentPage extends React.Component {
-    constructor(props){
-        super(props);
-    };
 
     componentDidMount(){
         window.scrollTo(0, 0);

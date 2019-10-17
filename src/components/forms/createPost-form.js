@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import Input from './input';
-import AreaInput from './area-input';
+import {AreaInput} from './area-input';
 import {required, nonEmpty, length, isTrimmed} from '../../helpers/validators';
 import slugify from 'slugify';
 

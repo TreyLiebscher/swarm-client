@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import AreaInput from './area-input';
+import {BorderedAreaInput} from './area-input';
 import {required, nonEmpty} from '../../helpers/validators';
 import './forms.css';
 
@@ -53,7 +53,7 @@ export class CreateCommentForm extends React.Component {
                     <button type="button" className="createComment-cancel" onClick={this.displayForm}>X</button>
                     <label htmlFor="body">Post a Comment</label>
                     <Field
-                        component={AreaInput}
+                        component={BorderedAreaInput}
                         type="text"
                         name="body"
                         validate={[required, nonEmpty]}
