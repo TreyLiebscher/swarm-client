@@ -47,15 +47,16 @@ export const commentReplyError = (error) => ({
 });
 
 export const commentReply = (comment, post, homePost) => (dispatch, getState) => {
-    const userId = getState().userProfile.id;
+    const AUTH_TOKEN = getState().auth.authToken;
+
     return fetch(`${Comment_URL}reply`, {
         method: 'POST',
         headers: {
+            'Authorization': `Bearer ${AUTH_TOKEN}`,
             'Accept': 'application/json',
             'Content-Type': 'application/json'   
         },
         body: JSON.stringify({
-            user: userId,
             body: comment.body,
             comment: post,
             homePost: homePost 
@@ -81,7 +82,7 @@ export const rateCommentError = error => ({
 });
 
 export const rateComment = (comment) => (dispatch, getState) => {
-    const userId = getState().userProfile.id;
+    const userId = getState().auth.currentUser.id;
     return fetch(`${API_BASE_URL}comments/rate`, {
         method: 'PUT',
         headers: {
@@ -98,7 +99,40 @@ export const rateComment = (comment) => (dispatch, getState) => {
     .then(res => res.json())
     .then((comment) => dispatch(rateCommentSuccess(comment)))
     .catch(err => {
-        dispatch(rateComment(err))
+        dispatch(rateCommentError(err))
     });
 }
+
+export const VIEW_COMMENT_REQUEST = 'VIEW_COMMENT_REQUEST';
+export const viewCommentRequest = () => ({
+    type: VIEW_COMMENT_REQUEST
+});
+
+export const VIEW_COMMENT_SUCCESS = 'VIEW_COMMENT_SUCCESS';
+export const viewCommentSuccess = comment => ({
+    type: VIEW_COMMENT_SUCCESS,
+    comment
+});
+
+export const VIEW_COMMENT_ERROR = 'VIEW_COMMENT_ERROR';
+export const viewCommentError = error => ({
+    type: VIEW_COMMENT_ERROR,
+    error
+});
+
+export const viewComment = id => dispatch => {
+    dispatch(viewCommentRequest());
+    return fetch(`${API_BASE_URL}comments/view/${id}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then((comment) => dispatch(viewCommentSuccess(comment)))
+    .catch(err => {
+        dispatch(viewCommentError(err));
+    });
+};
 
