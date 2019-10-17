@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentReplyForm from '../forms/commentReply-form';
+import { Link } from 'react-router-dom';
 import CommentRater from '../comments/comment-rater';
 import Ratings from '../posts/ratings';
 import FormatDate from '../../helpers/date-format';
@@ -10,7 +10,6 @@ export default class Comment extends React.Component {
         super(props);
         this.showReplies = this.showReplies.bind(this);
         this.showRater = this.showRater.bind(this);
-        this.showReplyForm = this.showReplyForm.bind(this);
         this.state = {
             replies: false,
             rater_visible: false,
@@ -35,18 +34,6 @@ export default class Comment extends React.Component {
             this.setState({replies: false});
             this.setState({reply_form_visible: false});
             this.setState({rater_visible: true});
-        } else {
-            this.setState({replies: false});
-            this.setState({reply_form_visible: false});
-            this.setState({rater_visible: false});
-        }
-    }
-
-    showReplyForm(){
-        if(this.state.reply_form_visible === false){
-            this.setState({replies: true});
-            this.setState({reply_form_visible: true});
-            this.setState({rater_visible: false});
         } else {
             this.setState({replies: false});
             this.setState({reply_form_visible: false});
@@ -115,7 +102,7 @@ export default class Comment extends React.Component {
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
                     <div className="comment-control-box">
                         {raterDisplayButton()}
-                        <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
+                        <button className="comment-reply-display-button"><Link className="comment-reply-link" to={`/posts/comments/${this.props.comment._id}`}>Reply</Link></button>
                         {displayRepliesButton()}
                     </div>
                     <div className="comment-control-container">
@@ -132,7 +119,7 @@ export default class Comment extends React.Component {
                         <p className="viewpost-comment-body">{this.props.comment.body}</p>
                         <div className="comment-control-box">
                             <button className="comment-reply-display-button" onClick={this.showRater}>CANCEL</button>
-                            <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
+                            <button className="comment-reply-display-button"><Link className="comment-reply-link" to={`/posts/comments/${this.props.comment._id}`}>Reply</Link></button>
                             {displayRepliesButton()}
                         </div>
                         <div className="comment-control-container">
@@ -141,26 +128,7 @@ export default class Comment extends React.Component {
                     </li>
                 )
         }
-        else if(this.state.reply_form_visible === true) {
-            return (
-                <li className="comment-container">
-                    {displayOriginalPoster()}
-                    <Ratings ratings={ratings()} length={this.props.comment.ratings.length}/>
-                    <p className="viewpost-comment-body">{this.props.comment.body}</p>
-                    <div className="comment-control-box">
-                        {raterDisplayButton()}
-                        <button className="comment-reply-display-button" onClick={this.showReplyForm}>CANCEL</button>
-                        <button className="comment-reply-display-button" onClick={this.showReplies}>Hide Replies</button>
-                    </div>
-                    <div className="comment-control-container">
-                        <ul className="comment-reply-container">
-                            {replies}
-                        </ul>
-                        <CommentReplyForm comment={this.props.comment} post={this.props.post}/>
-                    </div>
-                </li>
-            )
-    }
+
         else {
             return (
                 <li className="comment-container">
@@ -169,7 +137,7 @@ export default class Comment extends React.Component {
                     <p className="viewpost-comment-body">{this.props.comment.body}</p>
                     <div className="comment-control-box">
                         {raterDisplayButton()}
-                        <button className="comment-reply-display-button" onClick={this.showReplyForm}>Reply</button>
+                        <button className="comment-reply-display-button"><Link className="comment-reply-link" to={`/posts/comments/${this.props.comment._id}`}>Reply</Link></button>
                         <button className="comment-reply-display-button" onClick={this.showReplies}>Hide Replies</button>
                     </div>
                     <div className="comment-control-container">
