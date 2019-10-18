@@ -14,6 +14,7 @@ import BuildHivePage from './pages/buildhive-page';
 import CreatePostPage from './pages/createpost-page';
 import ConversationPage from './pages/conversation-page';
 import ViewCommentPage from './pages/viewcomment-page';
+import MessagesPage from './pages/messages-page';
 
 export default (
   <Switch>
@@ -23,6 +24,7 @@ export default (
     <Route path="/hives/view/:title" component={ViewHivePage} />
     <Route path="/hives/build" component={BuildHivePage} />
     <Route path="/users/profile/home" component={ProfileHomePage} />
+    <Route path="/users/inbox" component={MessagesPage} />
     <Route path="/users/:user" component={PublicProfilePage} />
     <Route path="/posts/create/:id" component={CreatePostPage} />
     <Route path="/messages/:id" component={ConversationPage} />
