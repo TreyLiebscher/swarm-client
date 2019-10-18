@@ -67,7 +67,7 @@ export class ProfileHomePage extends React.Component {
                 <div className="profileHome-page">
                     <div className="profileHome-control-box">
                         <button className="profileHome-control" onClick={this.viewMain}>Main</button>
-                        <button className="profileHome-control middle" onClick={this.viewMessages}>Messages</button>
+                        <button className="profileHome-control middle"><Link className="messages-page-button-link" to="/users/inbox">Messages</Link></button>
                         <button className="profileHome-control" onClick={this.viewNotifications}>Notifications ({this.props.user.notifications.length})</button>
                     </div>
                     <div className="profileHome-userInfo-container">
