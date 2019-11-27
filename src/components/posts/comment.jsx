@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentRater from '../comments/comment-rater';
 import CommentRatings from './comment-ratings';
+import Reply from '../comments/reply';
 import FormatDate from '../../helpers/date-format';
 import './comment.css';
 
@@ -46,10 +47,7 @@ export default class Comment extends React.Component {
         const date = FormatDate(this.props.comment.createdAt);
 
         const replies = this.props.comment.replies.map((reply, index) => {
-            return  <li className="comment-reply" key={index}>
-                        <p className="viewpost-comment-author"><i>{reply.author} says:</i></p>
-                        <p className="viewpost-comment-body">{reply.body}</p>
-                    </li>
+            return <Reply key={index} reply={reply}/>
         });
 
         const displayOriginalPoster = () => {
