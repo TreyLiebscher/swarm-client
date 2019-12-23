@@ -9,6 +9,7 @@ import CreatePostForm from '../components/forms/createPost-form';
 export class CreatePostPage extends React.Component {
     componentDidMount(){
         this.props.dispatch(getProfile())
+        window.scrollTo(0, 0);
     }
 
     render(){
