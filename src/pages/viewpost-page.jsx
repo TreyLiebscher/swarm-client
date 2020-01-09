@@ -86,7 +86,7 @@ export class ViewPostPage extends React.Component {
                 <Ratings ratings={ratings()} length={this.props.view.ratings.length}/>
                 <br />
                 {link()}
-                <p>{post.body}</p>
+                <p className="viewpost-body">{post.body}</p>
                 {postRaterDisplay()}
                 <CreateCommentForm post={post}/>
                 <ul className="viewpost-comment-container">{comments}</ul>
