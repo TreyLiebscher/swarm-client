@@ -1,3 +1,15 @@
 .viewcomment-page-container {
     width: 100%;
 }
+
+.back-button {
+    margin-left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #00537d;
+    color: white;
+    font-size: 30px;
+    border: none;
+    border-top: 2px solid white;
+    padding: 0;
+}
