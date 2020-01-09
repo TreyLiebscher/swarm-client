@@ -15,14 +15,18 @@
     font-size: 12px;
 }
 
+.viewpost-body,
+.viewpost-comment-body {
+    white-space: pre-line;
+    text-align: left;
+    padding: 1em;
+    margin-top:0;
+}
+
 .viewpost-comment-container {
     list-style: none;
     padding: 0;
     text-align: left;
-}
-
-.viewpost-comment-body {
-    text-align: center;
 }
 
 .viewpost-more-button {
