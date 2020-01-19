@@ -54,6 +54,7 @@ const viewState = {
     title: '',
     mission: '',
     founder: '',
+    monitors: [],
     members: [],
     createdAt: '',
     posts: [],
@@ -68,11 +69,13 @@ export function hiveView(state = viewState, action) {
         return newState;
     }
     else if (action.type === VIEW_HIVE_SUCCESS) {
+        console.log('kiwi', action.hive)
         const changedState = {
             id: action.hive.id,
             title: action.hive.title,
             mission: action.hive.mission,
             founder: action.hive.founder,
+            monitors: action.hive.monitors,
             members: action.hive.members,
             createdAt: action.hive.createdAt, 
             posts: action.hive.posts, 

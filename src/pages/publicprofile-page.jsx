@@ -9,6 +9,7 @@ export class PublicProfilePage extends React.Component {
     
     componentDidMount() {
         this.props.dispatch(getPublicProfile(this.props.match.params.user));
+        window.scrollTo(0, 0);
     }
 
     render(){
