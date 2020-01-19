@@ -58,6 +58,22 @@ export class ViewHivePage extends React.Component {
             }
         }
 
+        const editHiveLink = () => {
+            if(this.props.auth.currentUser !== null){
+                if(hive.monitors.includes(this.props.auth.currentUser.id)){
+                    return <Link to={`/hives/edit/${hive.title}`}>EDIT</Link>
+                }
+            }
+        }
+
+        const deleteHiveButton = () => {
+            if(this.props.auth.currentUser !== null){
+                if(hive.monitors.includes(this.props.auth.currentUser.id)){
+                    return <Link to={`/hives/delete/${hive.title}`}>DELETE</Link>
+                }
+            }
+        }
+
         return (
             <div className="viewhive-page-container">
                 <div className="viewhive-page-hive-info-container">
@@ -75,6 +91,8 @@ export class ViewHivePage extends React.Component {
                     </div>
 
                     {joinButton()}
+                    {editHiveLink()}
+                    {deleteHiveButton()}
                     <p>Members: {members}</p>
                     <div className="viewhive-page-link-container">
                         <Link className="viewhive-page-link" to={`/posts/create/${hive.id}`}><p className="viewhive-page-link-text">+Create Post</p></Link>
