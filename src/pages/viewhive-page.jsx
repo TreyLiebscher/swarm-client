@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {viewHiveByTitle, joinHive, leaveHive} from '../actions/hives';
 import {FormatYear} from '../helpers/date-format';
 import QuickViewPost from '../components/posts/quickview-post';
+import LoadingMessage from '../components/loading-message';
 import './viewhive-page.css'
 
 export class ViewHivePage extends React.Component {
@@ -76,6 +77,7 @@ export class ViewHivePage extends React.Component {
 
         return (
             <div className="viewhive-page-container">
+                <LoadingMessage loading={this.props.view.loading} />
                 <div className="viewhive-page-hive-info-container">
                     <div className="viewhive-page-title-container">
                         <h2 className="viewhive-page-title">&#x2b21; {hive.title}</h2>
