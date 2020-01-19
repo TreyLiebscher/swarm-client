@@ -10,7 +10,7 @@ export default class LoadingMessage extends React.Component {
 
         const displayLoading = () => {
             if(this.props.loading === true){
-                return <p className="message">LOADING...</p>
+                return <p className="message">Loading...</p>
             }
         }
 
