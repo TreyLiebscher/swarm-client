@@ -18,7 +18,6 @@ export class HomePage extends React.Component {
 
 
     componentDidMount() {
-        // this.props.dispatch(browsePosts(1));
         this.props.dispatch(browseHives(this.state.page));
     }
 
@@ -38,9 +37,6 @@ export class HomePage extends React.Component {
     }
 
     render(){
-        // const posts = this.props.browse.posts.map((post, index) => {
-        //    return <QuickViewPost id={post.id} key={index} title={post.title} author={post.author} hive={post.hive.title} />
-        // });
 
         const hives = this.props.browse.hives.map((hive, index) => {
             return <QuickViewHive 
@@ -68,9 +64,6 @@ export class HomePage extends React.Component {
         return (
             <div className="home-page-container">
                 <LoadingMessage loading={this.props.browse.loading} />
-                {/* <p>Page {this.props.browse.currentPage}/{this.props.browse.pages}</p>
-                {backButton()}
-                {nextButton()} */}
                 {hives}
                 <p>Page {this.props.browse.currentPage}/{this.props.browse.pages}</p>
                 {backButton()}
