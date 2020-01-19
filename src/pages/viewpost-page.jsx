@@ -81,7 +81,7 @@ export class ViewPostPage extends React.Component {
             <div className="viewpost">
                 <Link className="viewpost-hive-link" to={`/hives/view/${slugify(post.hive_title)}`}><p>&#x2b21; {post.hive_title}</p></Link>
                 <h2>{post.title}</h2>
-                <p>By: <span className="viewpost-author">&#x2b21; {post.author}</span></p>
+                <p>By: <Link className="quickview-post-author-link" to={`/users/${post.author}`}><span className="viewpost-author">&#x2b21; {post.author}</span></Link></p>
                 <p className="viewpost-date">{date}</p>
                 <Ratings ratings={ratings()} length={this.props.view.ratings.length}/>
                 <br />
