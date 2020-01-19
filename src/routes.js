@@ -8,6 +8,8 @@ import LogInPage from './pages/login-page';
 import NotFoundPage from './pages/notfound-page';
 import ViewPostPage from './pages/viewpost-page';
 import ViewHivePage from './pages/viewhive-page';
+import EditHivePage from './pages/editHivePage';
+import DeleteHivePage from './pages/deleteHive-page';
 import ProfileHomePage from './pages/profilehome-page';
 import PublicProfilePage from './pages/publicprofile-page';
 import BuildHivePage from './pages/buildhive-page';
@@ -23,6 +25,8 @@ export default (
     <Route path="/posts/comments/:id" component={ViewCommentPage} />
     <Route path="/hives/view/:title" component={ViewHivePage} />
     <Route path="/hives/build" component={BuildHivePage} />
+    <Route path="/hives/edit/:title" component={EditHivePage} />
+    <Route path="/hives/delete/:title" component={DeleteHivePage} />
     <Route path="/users/profile/home" component={ProfileHomePage} />
     <Route path="/users/inbox" component={MessagesPage} />
     <Route path="/users/:user" component={PublicProfilePage} />
