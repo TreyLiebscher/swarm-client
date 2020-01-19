@@ -64,7 +64,8 @@
 .login-form,
 .signup-form,
 .buildHive,
-.createPost {
+.createPost,
+.updateHive {
     background: #659cb7;
     padding-top: 10px;
 }
@@ -72,7 +73,8 @@
 .login-button,
 .signup-button,
 .buildHive-button,
-.createPost-button {
+.createPost-button,
+.updateHive-button {
     background: #00537d;
     color: white;
     width: 75%;
