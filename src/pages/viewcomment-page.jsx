@@ -20,10 +20,20 @@ export class ViewCommentPage extends React.Component {
         this.props.history.push(`/posts/view/${this.props.comment.post._id}/${this.props.comment.post.title}`)
     }
 
+
     render(){
+
+    const displayBackButton = () => {
+        // If post was deleted, but comment still exists in form of notification
+        // a quick fix, one that will not be necessary once all delete methods
+        // are properly built out (TODO)
+        if(this.props.comment.post._id !== null){
+            return <button className="back-button" onClick={this.goBack}>⇦</button>
+        }
+    }
         return (
             <div className="viewcomment-page-container">
-                <button className="back-button" onClick={this.goBack}>⇦</button>
+                {displayBackButton()}
                 <SingleComment comment={this.props.comment} post={this.props.comment.post} user={this.props.user.id}/>
             </div>
         )
