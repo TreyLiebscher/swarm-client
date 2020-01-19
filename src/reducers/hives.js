@@ -69,7 +69,6 @@ export function hiveView(state = viewState, action) {
         return newState;
     }
     else if (action.type === VIEW_HIVE_SUCCESS) {
-        console.log('kiwi', action.hive)
         const changedState = {
             id: action.hive.id,
             title: action.hive.title,
