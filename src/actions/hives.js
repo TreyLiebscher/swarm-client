@@ -17,6 +17,7 @@ const standardViewHive = hive => ({
     posts: hive.posts,
     members: hive.members,
     founder: hive.founder.username,
+    monitors: hive.monitors,
     createdAt: hive.createdAt
 });
 
@@ -201,3 +202,72 @@ export const leaveHive = hive => (dispatch, getState) => {
         dispatch(leaveHiveError(err));
     });
 }
+
+// PUT - Update Hive \\
+export const UPDATE_HIVE_SUCCESS = 'UPDATE_HIVE_SUCCESS';
+export const updateHiveSuccess = (hive) => ({
+    type: UPDATE_HIVE_SUCCESS,
+    hive
+});
+
+export const UPDATE_HIVE_ERROR = 'UPDATE_HIVE_ERROR';
+export const updateHiveError = error => ({
+    type: UPDATE_HIVE_ERROR,
+    error
+});
+
+export const updateHive = (values, hive) => (dispatch, getState) => {
+    const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}hives/update`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: userId,
+            hive: hive.id,
+            title: values.title,
+            mission: values.mission
+        })
+    })
+    .then(res => res.json())
+    .then((hive) => dispatch(updateHiveSuccess(hive)))
+    .catch(err => {
+        dispatch(updateHiveError(err));
+    });
+}
+
+// DELETE - Delete Hive \\
+export const DELETE_HIVE_SUCCESS = 'DELETE_HIVE_SUCCESS';
+export const deleteHiveSuccess = (hive) => ({
+    type: DELETE_HIVE_SUCCESS,
+    hive
+});
+
+export const DELETE_HIVE_ERROR = 'DELETE_HIVE_ERROR';
+export const deleteHiveError = error => ({
+    type: DELETE_HIVE_ERROR,
+    error
+});
+
+export const deleteHive = hive => (dispatch, getState) => {
+    // const userId = getState().auth.currentUser.id;
+
+    return fetch(`${API_BASE_URL}hives/delete/${hive.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then((hive) => dispatch(deleteHiveSuccess(hive)))
+    .catch(err => {
+        dispatch(deleteHiveError(err));
+    });
+}
+
+
+
